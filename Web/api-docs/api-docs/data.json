@@ -2,23 +2,9 @@
     "project": {
         "name": "HandyGraphic.js",
         "description": "HandyGraphic graphic library written in JavaScript",
-        "version": "0.0.1"
+        "version": "1.0.0"
     },
     "files": {
-        "archery/main.js": {
-            "name": "archery/main.js",
-            "modules": {},
-            "classes": {},
-            "fors": {},
-            "namespaces": {}
-        },
-        "sprite/main.js": {
-            "name": "sprite/main.js",
-            "modules": {},
-            "classes": {},
-            "fors": {},
-            "namespaces": {}
-        },
         "handyGraphic.js": {
             "name": "handyGraphic.js",
             "modules": {
@@ -205,21 +191,9 @@
     "elements": {},
     "classitems": [
         {
-            "file": "archery/main.js",
-            "line": 1,
-            "description": "main.js v0.0.1\nCopyright (c) 2016 kengo92i",
-            "class": "handyGraphic.globalize"
-        },
-        {
-            "file": "sprite/main.js",
-            "line": 1,
-            "description": "main.js v0.0.1\nCopyright (c) 2016 kengo92i",
-            "class": "handyGraphic.globalize"
-        },
-        {
             "file": "handyGraphic.js",
             "line": 1,
-            "description": "handyGraphic.js v0.0.1\nCopyright (c) 2016 kengo92i",
+            "description": "handyGraphic.js v1.0.0\nCopyright (c) 2016 kengo92i",
             "class": "handyGraphic.globalize"
         },
         {
@@ -1416,7 +1390,9 @@
                     "type": "String"
                 }
             ],
-            "exapmle": "```\nHg.WSetFont(win1, \"sans-serif\", 12);\nHg.WSetFont(win2, \"sans-serif\", 16);\n```",
+            "example": [
+                "\n```\nHg.WSetFont(win1, \"sans-serif\", 12);\nHg.WSetFont(win2, \"sans-serif\", 16);\n```"
+            ],
             "class": "handyGraphic.Graphic",
             "module": "handyGraphic",
             "namespace": "handyGraphic"
@@ -1817,19 +1793,7 @@
     ],
     "warnings": [
         {
-            "message": "unknown tag: exapmle",
-            "line": " handyGraphic.js:868"
-        },
-        {
-            "message": "Missing item type\nmain.js v0.0.1\nCopyright (c) 2016 kengo92i",
-            "line": " archery/main.js:1"
-        },
-        {
-            "message": "Missing item type\nmain.js v0.0.1\nCopyright (c) 2016 kengo92i",
-            "line": " sprite/main.js:1"
-        },
-        {
-            "message": "Missing item type\nhandyGraphic.js v0.0.1\nCopyright (c) 2016 kengo92i",
+            "message": "Missing item type\nhandyGraphic.js v1.0.0\nCopyright (c) 2016 kengo92i",
             "line": " handyGraphic.js:1"
         }
     ]

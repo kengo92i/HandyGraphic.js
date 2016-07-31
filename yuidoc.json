@@ -6,6 +6,7 @@
         "paths" : [
             "./"
         ],
+        "exclude": "Web",
         "outdir" : "./docs",
         "themedir" : "./themes/handyGraphic/"
     }
