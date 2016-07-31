@@ -1,0 +1,1673 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>handyGraphic.Graphic - HandyGraphic.js</title>
+    <link rel="stylesheet" href="http://yui.yahooapis.com/3.8.0pr2/build/cssgrids/cssgrids-min.css">
+    <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
+    <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
+    <script src="http://yui.yahooapis.com/combo?3.8.0pr2/build/yui/yui-min.js"></script>
+</head>
+<body class="yui3-skin-sam">
+
+<div id="doc">
+    <div id="hd" class="yui3-g header">
+        <div class="yui3-u-3-4">
+            <h1><a href="../index.html"><img src="../assets/css/logo.png" width="60" height="60">HandyGraphic.js: handyGraphic.Graphic</a></h1>
+        </div>
+        <div class="yui3-u-1-4 version">
+            <em>API Docs for: 0.0.1</em>
+        </div>
+    </div>
+    <div class="yui3-g">
+
+        <div id="sidebar" class="yui3-u">
+            <div id="modules" class="sidebox">
+                <div class="hd">
+                    <h2 class="no-toc">Modules</h2>
+                </div>
+                <div class="bd">
+                    <ul>
+                            <li><a href="../modules/handyGraphic.html">handyGraphic</a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div id="classes" class="sidebox">
+                <div class="hd">
+                    <h2 class="no-toc">Classes</h2>
+                </div>
+                <div class="bd">
+                    <ul>
+                            <li><a href="../classes/handyGraphic.globalize.html">handyGraphic.globalize</a></li>
+                            <li><a href="../classes/handyGraphic.Graphic.html">handyGraphic.Graphic</a></li>
+                            <li><a href="../classes/handyGraphic.Scene.html">handyGraphic.Scene</a></li>
+                            <li><a href="../classes/handyGraphic.Sprite.html">handyGraphic.Sprite</a></li>
+                            <li><a href="../classes/handyGraphic.Util.html">handyGraphic.Util</a></li>
+                            <li><a href="../classes/handyGraphic.Window.html">handyGraphic.Window</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div id="elements" class="sidebox">
+                <div class="hd">
+                    <h2 class="no-toc">Elements</h2>
+                </div>
+                <div class="bd">
+                    <ul>
+                    </ul>
+                </div>
+            </div>
+            
+            <div id="methods-on-page" class="sidebox on-page">
+                <div class="hd">
+                    <h2 class="no-toc">Methods On Page</h2>
+                </div>
+                <div class="bd">
+                    <ul>
+                            <li><a href="#methods_Arc">Arc</a></li>
+                            <li><a href="#methods_Box">Box</a></li>
+                            <li><a href="#methods_BoxFill">BoxFill</a></li>
+                            <li><a href="#methods_Circle">Circle</a></li>
+                            <li><a href="#methods_CircleFill">CircleFill</a></li>
+                            <li><a href="#methods_Clear">Clear</a></li>
+                            <li><a href="#methods_Fan">Fan</a></li>
+                            <li><a href="#methods_FanFill">FanFill</a></li>
+                            <li><a href="#methods_Gray">Gray</a></li>
+                            <li><a href="#methods_GrayA">GrayA</a></li>
+                            <li><a href="#methods_Line">Line</a></li>
+                            <li><a href="#methods_Open">Open</a></li>
+                            <li><a href="#methods_Polygon">Polygon</a></li>
+                            <li><a href="#methods_PolygonFill">PolygonFill</a></li>
+                            <li><a href="#methods_RGB">RGB</a></li>
+                            <li><a href="#methods_RGBA">RGBA</a></li>
+                            <li><a href="#methods_SetColor">SetColor</a></li>
+                            <li><a href="#methods_SetFillColor">SetFillColor</a></li>
+                            <li><a href="#methods_SetFont">SetFont</a></li>
+                            <li><a href="#methods_SetWidth">SetWidth</a></li>
+                            <li><a href="#methods_Text">Text</a></li>
+                            <li><a href="#methods_WArc">WArc</a></li>
+                            <li><a href="#methods_WBox">WBox</a></li>
+                            <li><a href="#methods_WBoxFill">WBoxFill</a></li>
+                            <li><a href="#methods_WCircle">WCircle</a></li>
+                            <li><a href="#methods_WCircleFill">WCircleFill</a></li>
+                            <li><a href="#methods_WClear">WClear</a></li>
+                            <li><a href="#methods_WFan">WFan</a></li>
+                            <li><a href="#methods_WFanFill">WFanFill</a></li>
+                            <li><a href="#methods_WLine">WLine</a></li>
+                            <li><a href="#methods_WOpen">WOpen</a></li>
+                            <li><a href="#methods_WPolygon">WPolygon</a></li>
+                            <li><a href="#methods_WPolygonFill">WPolygonFill</a></li>
+                            <li><a href="#methods_WSetColor">WSetColor</a></li>
+                            <li><a href="#methods_WSetFillColor">WSetFillColor</a></li>
+                            <li><a href="#methods_WSetText">WSetText</a></li>
+                            <li><a href="#methods_WSetWidth">WSetWidth</a></li>
+                            <li><a href="#methods_WText">WText</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            
+            
+            
+            <div id="fileTree" class="sidebox">
+                <div class="hd">
+                    <h2 class="no-toc">Files</h2>
+                </div>
+                <div class="bd">
+                    <ul><li>archery/<ul><li><a href="../files/archery_main.js.html">main.js</a></li></ul></li><li>handyGraphic.js/<ul></ul></li><li>sprite/<ul><li><a href="../files/sprite_main.js.html">main.js</a></li></ul></li></ul>
+                </div>
+            </div>
+            
+        </div>
+
+        <div id="main" class="yui3-u">
+            <div class="content"><h4>Class handyGraphic.Graphic</h4>
+<span class="foundat">Class defined in: <a href="../files/handyGraphic.js.html#l129"><code>handyGraphic.js:129</code></a></span>
+<div class="intro"><p>Graphic オブジェクトは基本的な図形の描画，文字の表示，描画設定の変更などをサポートしています．</p>
+<p>Graphic オブジェクトの各機能は C言語版 Handy Graphic の描画機能を参考にしています．
+変数名を Hg とすることで，C言語版の関数名と同じように扱うことができます．
+また，一部のメソッドは仕様が変わっているものもあるので，APIドキュメントを随時参照してください．</p>
+<p>ウィンドウを指定して描画を行う場合は，WLine，WCircleなどを使用します．
+ウィンドウは，Open，WOpen メソッドを使用することで作成することができます．
+Open メソッドは実行するたびにカレントウィンドウが変更されることに注意してください．
+カレントウィンドウとは，ウィンドウを指定せずに描画メソッドを実行した場合に描画が行われるウィンドウです．</p>
+</div>
+
+<a name="methods_handyGraphic.Graphic"></a>
+<div class="method item">
+     <strong class="name"><code>handyGraphic.Graphic</code></strong>( <code>  </code> ) 
+    <br>
+    <span class="foundat">
+        
+        <a href="../files/handyGraphic.js.html#l129"><code>handyGraphic.js:129</code></a>
+    </span><br>
+    
+        <h5>Example</h5>
+        <pre class="code prettyprint"><code>handyGraphic.globalize(); // handyGraphic.jsをグローバル展開する
+window.onload = function () {
+  var Hg = new Graphic(); // Graphicオブジェクトを作成する
+  var win = Hg.Open(400, 400); // 描画するウィンドウを作成する
+
+  Hg.Line(100, 100, 300, 300); // 直線の描画
+  Hg.Circle(50, 50, 100); // 円の描画
+}
+</code></pre>
+
+</div>
+
+<div id="classdocs">
+    <ul>
+        <li><a href="#methods">Methods</a></li>
+        <li><a href="#props">Properties</a></li>
+    </ul>
+    <div>
+            <div id="methods">
+<a name="methods_Arc"></a>
+<div class="method item">
+     <strong class="name"><code>Arc</code></strong>( <code>x, y, r, a0, a1 </code> ) 
+    <br>
+    <span class="foundat">
+        
+        <a href="../files/handyGraphic.js.html#l377"><code>handyGraphic.js:377</code></a>
+    </span><br>
+    <p>座標(x, y) を中心とした半径rの円について，開始角度 a0 と終了角度 a1 を指定して円弧を描画．
+円弧は始点角度から終了角度までを反時計回りに結びます．中心座標はウィンドウの外部でも良い．</p>
+<p>角度は， 0 ~ 360 で表される整数を使います．</p>
+
+    <strong>Parameters:</strong>
+    <ul class="params">
+        <li>
+            <code>x</code> <strong>&lt;Number&gt;</strong>
+        <p>円弧の中心のx座標</p>
+
+        </li>
+        <li>
+            <code>y</code> <strong>&lt;Number&gt;</strong>
+        <p>円弧の中心のy座標</p>
+
+        </li>
+        <li>
+            <code>r</code> <strong>&lt;Number&gt;</strong>
+        <p>円弧の半径</p>
+
+        </li>
+        <li>
+            <code>a0</code> <strong>&lt;Number&gt;</strong>
+        <p>開始角度</p>
+
+        </li>
+        <li>
+            <code>a1</code> <strong>&lt;Number&gt;</strong>
+        <p>終了角度</p>
+
+        </li>
+    </ul>
+        <h5>Example</h5>
+        <pre class="code prettyprint"><code>Hg.Arc(10, 10, 5, 0, 135); 
+</code></pre>
+
+</div>
+<a name="methods_Box"></a>
+<div class="method item">
+     <strong class="name"><code>Box</code></strong>( <code>x, y, w, r </code> ) 
+    <br>
+    <span class="foundat">
+        
+        <a href="../files/handyGraphic.js.html#l294"><code>handyGraphic.js:294</code></a>
+    </span><br>
+    <p>座標(x, y) を左下隅とする幅w，高さhの長方形を描画．
+左下隅の座標ははウィンドウの外部の点でも構いません．</p>
+
+    <strong>Parameters:</strong>
+    <ul class="params">
+        <li>
+            <code>x</code> <strong>&lt;Number&gt;</strong>
+        <p>左下隅のx座標</p>
+
+        </li>
+        <li>
+            <code>y</code> <strong>&lt;Number&gt;</strong>
+        <p>左下隅のy座標</p>
+
+        </li>
+        <li>
+            <code>w</code> <strong>&lt;Number&gt;</strong>
+        <p>幅</p>
+
+        </li>
+        <li>
+            <code>r</code> <strong>&lt;Number&gt;</strong>
+        <p>高さ</p>
+
+        </li>
+    </ul>
+        <h5>Example</h5>
+        <pre class="code prettyprint"><code>Hg.Box(10, 10, 3, 5); // (10, 10) を左下隅とする幅3，高さ5の長方形を描画
+</code></pre>
+
+</div>
+<a name="methods_BoxFill"></a>
+<div class="method item">
+     <strong class="name"><code>BoxFill</code></strong>( <code>x, y, w, r, stroke </code> ) 
+    <br>
+    <span class="foundat">
+        
+        <a href="../files/handyGraphic.js.html#l311"><code>handyGraphic.js:311</code></a>
+    </span><br>
+    <p>座標(x, y) を左下隅とする幅w，高さhの塗りつぶされた長方形を描画．
+左下隅の座標はウィンドウの外部の点でも構いません．</p>
+<p>引数 stroke が 0 の場合は周囲に長方形を描きません．
+0 以外の値(例えば 1)の場合，他の線図形と同じ太さ，同じ色の線で長方形を描きます．</p>
+
+    <strong>Parameters:</strong>
+    <ul class="params">
+        <li>
+            <code>x</code> <strong>&lt;Number&gt;</strong>
+        <p>左下隅のx座標</p>
+
+        </li>
+        <li>
+            <code>y</code> <strong>&lt;Number&gt;</strong>
+        <p>左下隅のy座標</p>
+
+        </li>
+        <li>
+            <code>w</code> <strong>&lt;Number&gt;</strong>
+        <p>幅</p>
+
+        </li>
+        <li>
+            <code>r</code> <strong>&lt;Number&gt;</strong>
+        <p>高さ</p>
+
+        </li>
+        <li>
+            <code>stroke</code> <strong>&lt;Number&gt;</strong>
+        <p>周囲を描くかどうか</p>
+
+        </li>
+    </ul>
+        <h5>Example</h5>
+        <pre class="code prettyprint"><code>Hg.BoxFill(10, 10, 3, 5); // (10, 10) を左下隅とする幅3，高さ5の塗りつぶされた長方形を描画
+Hg.BoxFill(10, 10, 3, 5, 0); // strokeを指定しない or =0 なら円周は描画されない
+Hg.BoxFill(10, 10, 3, 5, 1); // 円周を描画する
+</code></pre>
+
+</div>
+<a name="methods_Circle"></a>
+<div class="method item">
+     <strong class="name"><code>Circle</code></strong>( <code>x, y, r </code> ) 
+    <br>
+    <span class="foundat">
+        
+        <a href="../files/handyGraphic.js.html#l256"><code>handyGraphic.js:256</code></a>
+    </span><br>
+    <p>座標(x, y) を中心とした半径rの円を描画．
+中心点はウィンドウの外部の点でも構いません．</p>
+
+    <strong>Parameters:</strong>
+    <ul class="params">
+        <li>
+            <code>x</code> <strong>&lt;Number&gt;</strong>
+        <p>中心のx座標</p>
+
+        </li>
+        <li>
+            <code>y</code> <strong>&lt;Number&gt;</strong>
+        <p>中心のy座標</p>
+
+        </li>
+        <li>
+            <code>r</code> <strong>&lt;Number&gt;</strong>
+        <p>半径</p>
+
+        </li>
+    </ul>
+        <h5>Example</h5>
+        <pre class="code prettyprint"><code>Hg.Circle(10, 10, 5); // (10, 10) を中心とした半径5の円を描画
+</code></pre>
+
+</div>
+<a name="methods_CircleFill"></a>
+<div class="method item">
+     <strong class="name"><code>CircleFill</code></strong>( <code>x, y, r, stroke </code> ) 
+    <br>
+    <span class="foundat">
+        
+        <a href="../files/handyGraphic.js.html#l272"><code>handyGraphic.js:272</code></a>
+    </span><br>
+    <p>座標(x, y) を中心とした半径rの塗りつぶされた円を描画．
+中心点はウィンドウの外部の点でも構いません．</p>
+<p>引数 stroke が 0 の場合は円周を描きません．
+0 以外の値(例えば 1)の場合，他の線と同じ太さ，同じ色の線で円周を描きます．</p>
+
+    <strong>Parameters:</strong>
+    <ul class="params">
+        <li>
+            <code>x</code> <strong>&lt;Number&gt;</strong>
+        <p>中心のx座標</p>
+
+        </li>
+        <li>
+            <code>y</code> <strong>&lt;Number&gt;</strong>
+        <p>中心のy座標</p>
+
+        </li>
+        <li>
+            <code>r</code> <strong>&lt;Number&gt;</strong>
+        <p>半径</p>
+
+        </li>
+        <li>
+            <code>stroke</code> <strong>&lt;Number&gt;</strong>
+        <p>円周を描くかどうか</p>
+
+        </li>
+    </ul>
+        <h5>Example</h5>
+        <pre class="code prettyprint"><code>Hg.CircleFill(10, 10, 5); // (10, 10) を中心とした半径5の塗りつぶされた円を描画
+Hg.CircleFill(10, 10, 5, 0); // strokeを指定しない or =0 なら円周は描画されない
+Hg.CircleFill(10, 10, 5, 1); // 円周を描画する
+</code></pre>
+
+</div>
+<a name="methods_Clear"></a>
+<div class="method item">
+     <strong class="name"><code>Clear</code></strong>( <code>  </code> ) 
+    <br>
+    <span class="foundat">
+        
+        <a href="../files/handyGraphic.js.html#l473"><code>handyGraphic.js:473</code></a>
+    </span><br>
+    <p>ウィンドウ内に書かれたすべての図形や文字を消去する．</p>
+
+        <h5>Example</h5>
+        <pre class="code prettyprint"><code>Hg.Clear(); // ウィンドウの初期化
+</code></pre>
+
+</div>
+<a name="methods_Fan"></a>
+<div class="method item">
+     <strong class="name"><code>Fan</code></strong>( <code>x, y, r, a0, a1 </code> ) 
+    <br>
+    <span class="foundat">
+        
+        <a href="../files/handyGraphic.js.html#l397"><code>handyGraphic.js:397</code></a>
+    </span><br>
+    <p>座標(x, y) を中心とした半径rの円について，開始角度 a0 と終了角度 a1 を指定して扇型の孤を描画．
+扇型の弧は始点角度から終了角度までを反時計回りに結びます．中心座標はウィンドウの外部でも良い．</p>
+<p>角度は， 0 ~ 360 で表される整数を使います．</p>
+
+    <strong>Parameters:</strong>
+    <ul class="params">
+        <li>
+            <code>x</code> <strong>&lt;Number&gt;</strong>
+        <p>弧の中心のx座標</p>
+
+        </li>
+        <li>
+            <code>y</code> <strong>&lt;Number&gt;</strong>
+        <p>弧の中心のy座標</p>
+
+        </li>
+        <li>
+            <code>r</code> <strong>&lt;Number&gt;</strong>
+        <p>弧の半径</p>
+
+        </li>
+        <li>
+            <code>a0</code> <strong>&lt;Number&gt;</strong>
+        <p>開始角度</p>
+
+        </li>
+        <li>
+            <code>a1</code> <strong>&lt;Number&gt;</strong>
+        <p>終了角度</p>
+
+        </li>
+    </ul>
+        <h5>Example</h5>
+        <pre class="code prettyprint"><code>Hg.Fan(10, 10, 5, 0, 135); 
+</code></pre>
+
+</div>
+<a name="methods_FanFill"></a>
+<div class="method item">
+     <strong class="name"><code>FanFill</code></strong>( <code>x, y, r, a0, a1, stroke </code> ) 
+    <br>
+    <span class="foundat">
+        
+        <a href="../files/handyGraphic.js.html#l417"><code>handyGraphic.js:417</code></a>
+    </span><br>
+    <p>座標(x, y) を中心とした半径rの円について，開始角度 a0 と終了角度 a1 を指定して塗りつぶされた扇型を描画．
+扇型の弧は始点角度から終了角度までを反時計回りに結びます．中心座標はウィンドウの外部でも良い．</p>
+<p>引数 stroke が 0 の場合は周囲の線を描きません．
+角度は， 0 ~ 360 で表される整数を使います．</p>
+
+    <strong>Parameters:</strong>
+    <ul class="params">
+        <li>
+            <code>x</code> <strong>&lt;Number&gt;</strong>
+        <p>弧の中心のx座標</p>
+
+        </li>
+        <li>
+            <code>y</code> <strong>&lt;Number&gt;</strong>
+        <p>弧の中心のy座標</p>
+
+        </li>
+        <li>
+            <code>r</code> <strong>&lt;Number&gt;</strong>
+        <p>弧の半径</p>
+
+        </li>
+        <li>
+            <code>a0</code> <strong>&lt;Number&gt;</strong>
+        <p>開始角度</p>
+
+        </li>
+        <li>
+            <code>a1</code> <strong>&lt;Number&gt;</strong>
+        <p>終了角度</p>
+
+        </li>
+        <li>
+            <code>stroke</code> <strong>&lt;Number&gt;</strong>
+        <p>周囲を描くかどうか</p>
+
+        </li>
+    </ul>
+        <h5>Example</h5>
+        <pre class="code prettyprint"><code>Hg.FanFill(10, 10, 5, 0, 135); // 円周なし
+Hg.FanFill(10, 10, 5, 0, 135, 0); // 円周なし
+Hg.FanFill(10, 10, 5, 0, 135, 1); // 円周あり
+</code></pre>
+
+</div>
+<a name="methods_Gray"></a>
+<div class="method item">
+    String <strong class="name"><code>Gray</code></strong>( <code>g </code> ) 
+    <br>
+    <span class="foundat">
+        
+        <a href="../files/handyGraphic.js.html#l904"><code>handyGraphic.js:904</code></a>
+    </span><br>
+    <p>0 ~ 255 の値で指定された数値を元に，白から黒までの範囲で色を作成する．
+0が黒，255が白です．引数の数値は0 &lt;= g &lt;= 255 の整数で指定する．</p>
+
+    <strong>Parameters:</strong>
+    <ul class="params">
+        <li>
+            <code>g</code> <strong>&lt;Number&gt;</strong>
+        <p>グレーの濃度を示す整数</p>
+
+        </li>
+    </ul>
+    <br><div class="returns"><strong>Returns:</strong> &lt;String&gt; <p>CSSで指定するフォーマット形式の文字列</p>
+</div>
+        <h5>Example</h5>
+        <pre class="code prettyprint"><code>String color = Hg.Gray(0); // 黒色
+HgSetColor(color); // 黒色に変更
+
+HgSetColor(Hg.Gray(255)); // 白色に変更
+</code></pre>
+
+</div>
+<a name="methods_GrayA"></a>
+<div class="method item">
+    String <strong class="name"><code>GrayA</code></strong>( <code>g, a </code> ) 
+    <br>
+    <span class="foundat">
+        
+        <a href="../files/handyGraphic.js.html#l923"><code>handyGraphic.js:923</code></a>
+    </span><br>
+    <p>白黒の半透明色を作成する．
+0が黒，255が白です．引数の数値は0 &lt;= g &lt;= 255 の整数で指定する．
+アルファ値は0.0 &lt;= a &lt;= 1.0 の範囲内の値で指定する．</p>
+
+    <strong>Parameters:</strong>
+    <ul class="params">
+        <li>
+            <code>g</code> <strong>&lt;Number&gt;</strong>
+        <p>グレーの濃度を示す整数</p>
+
+        </li>
+        <li>
+            <code>a</code> <strong>&lt;Number&gt;</strong>
+        <p>アルファ値</p>
+
+        </li>
+    </ul>
+    <br><div class="returns"><strong>Returns:</strong> &lt;String&gt; <p>CSSで指定するフォーマット形式の文字列</p>
+</div>
+        <h5>Example</h5>
+        <pre class="code prettyprint"><code>String color = Hg.GrayA(0, 0.5); // 半透明の黒色
+HgSetColor(color);
+
+HgSetColor(Hg.GrayA(255, 0.5)); // 半透明の白色に変更
+</code></pre>
+
+</div>
+<a name="methods_Line"></a>
+<div class="method item">
+     <strong class="name"><code>Line</code></strong>( <code>x0, y0, x1, y0 </code> ) 
+    <br>
+    <span class="foundat">
+        
+        <a href="../files/handyGraphic.js.html#l239"><code>handyGraphic.js:239</code></a>
+    </span><br>
+    <p>(x0, y0) と (x1, y1) を結ぶ線分を描画．
+これらの点はウィンドウの外部の点でも構いません．</p>
+
+    <strong>Parameters:</strong>
+    <ul class="params">
+        <li>
+            <code>x0</code> <strong>&lt;Number&gt;</strong>
+        <p>始点のx座標</p>
+
+        </li>
+        <li>
+            <code>y0</code> <strong>&lt;Number&gt;</strong>
+        <p>始点のy座標</p>
+
+        </li>
+        <li>
+            <code>x1</code> <strong>&lt;Number&gt;</strong>
+        <p>終点のx座標</p>
+
+        </li>
+        <li>
+            <code>y0</code> <strong>&lt;Number&gt;</strong>
+        <p>終点のy座標</p>
+
+        </li>
+    </ul>
+        <h5>Example</h5>
+        <pre class="code prettyprint"><code>Hg.Line(100, 100, 300, 300); // (100, 100) と (300, 300) を結ぶ線分を描画
+</code></pre>
+
+</div>
+<a name="methods_Open"></a>
+<div class="method item">
+    Window <strong class="name"><code>Open</code></strong>( <code>w, h, canvasId </code> ) 
+    <br>
+    <span class="foundat">
+        
+        <a href="../files/handyGraphic.js.html#l167"><code>handyGraphic.js:167</code></a>
+    </span><br>
+    <p>描画するウィンドウを作成する．
+実行するたび，参照しているWindowオブジェクト(カレントウィンドウ)が変更される．
+canvasId を指定しない場合は，#canvasが指定されているものとしてウィンドウを動作します．</p>
+
+    <strong>Parameters:</strong>
+    <ul class="params">
+        <li>
+            <code>w</code> <strong>&lt;Number&gt;</strong>
+        <p>ウィンドウの幅</p>
+
+        </li>
+        <li>
+            <code>h</code> <strong>&lt;Number&gt;</strong>
+        <p>ウィンドウの高さ</p>
+
+        </li>
+        <li>
+            <code>canvasId</code> <strong>&lt;String&gt;</strong>
+        <p>canvasのId</p>
+
+        </li>
+    </ul>
+    <br><div class="returns"><strong>Returns:</strong> &lt;Window&gt; <p>ウィンドウオブジェクト</p>
+</div>
+        <h5>Example</h5>
+        <pre class="code prettyprint"><code>var win1 = Hg.Open(400, 400); // 400x400のウィンドウを作成
+var win2 = Hg.Open(300, 300, &quot;canvas2&quot;); // カレントウィンドウがwin2に変更される
+</code></pre>
+
+</div>
+<a name="methods_Polygon"></a>
+<div class="method item">
+     <strong class="name"><code>Polygon</code></strong>( <code>n, x, y </code> ) 
+    <br>
+    <span class="foundat">
+        
+        <a href="../files/handyGraphic.js.html#l334"><code>handyGraphic.js:334</code></a>
+    </span><br>
+    <p>指定された座標群 x，y を結ぶような多角形を描画．
+最初の点と最後の点の間が結ばれます．</p>
+
+    <strong>Parameters:</strong>
+    <ul class="params">
+        <li>
+            <code>n</code> <strong>&lt;Number&gt;</strong>
+        <p>頂点数</p>
+
+        </li>
+        <li>
+            <code>x</code> <strong>&lt;Array&gt;</strong>
+        <p>x座標の配列</p>
+
+        </li>
+        <li>
+            <code>y</code> <strong>&lt;Array&gt;</strong>
+        <p>y座標の配列</p>
+
+        </li>
+    </ul>
+        <h5>Example</h5>
+        <pre class="code prettyprint"><code>var x = [x0, x1, x2, x3, x4];
+var y = [y0, y1, y2, y3, y4];
+
+Hg.Polygon(5, x, y);
+</code></pre>
+
+</div>
+<a name="methods_PolygonFill"></a>
+<div class="method item">
+     <strong class="name"><code>PolygonFill</code></strong>( <code>n, x, y, stroke </code> ) 
+    <br>
+    <span class="foundat">
+        
+        <a href="../files/handyGraphic.js.html#l353"><code>handyGraphic.js:353</code></a>
+    </span><br>
+    <p>指定された座標群 x，y を結ぶような塗りつぶされた多角形を描画．
+最初の点と最後の点の間が結ばれます．</p>
+<p>引数 stroke が 0 の場合は周囲の線を描きません．</p>
+
+    <strong>Parameters:</strong>
+    <ul class="params">
+        <li>
+            <code>n</code> <strong>&lt;Number&gt;</strong>
+        <p>頂点数</p>
+
+        </li>
+        <li>
+            <code>x</code> <strong>&lt;Array&gt;</strong>
+        <p>x座標の配列</p>
+
+        </li>
+        <li>
+            <code>y</code> <strong>&lt;Array&gt;</strong>
+        <p>y座標の配列</p>
+
+        </li>
+        <li>
+            <code>stroke</code> <strong>&lt;Number&gt;</strong>
+        <p>周囲を描くかどうか</p>
+
+        </li>
+    </ul>
+        <h5>Example</h5>
+        <pre class="code prettyprint"><code>var x = [x0, x1, x2, x3, x4];
+var y = [y0, y1, y2, y3, y4];
+
+Hg.PolygonFill(5, x, y); // 円周なし
+Hg.PolygonFill(5, x, y, 0); // 円周なし
+Hg.PolygonFill(5, x, y, 1); // 円周あり
+</code></pre>
+
+</div>
+<a name="methods_RGB"></a>
+<div class="method item">
+    String <strong class="name"><code>RGB</code></strong>( <code>r, g, b </code> ) 
+    <br>
+    <span class="foundat">
+        
+        <a href="../files/handyGraphic.js.html#l945"><code>handyGraphic.js:945</code></a>
+    </span><br>
+    <p>赤，緑，青の三原色の数値を元に色を作成する．
+引数の数値は 0 &lt;= r, g, b &lt;= 255 の整数で指定する</p>
+
+    <strong>Parameters:</strong>
+    <ul class="params">
+        <li>
+            <code>r</code> <strong>&lt;Number&gt;</strong>
+        <p>赤の濃度を示す整数</p>
+
+        </li>
+        <li>
+            <code>g</code> <strong>&lt;Number&gt;</strong>
+        <p>緑の濃度を示す整数</p>
+
+        </li>
+        <li>
+            <code>b</code> <strong>&lt;Number&gt;</strong>
+        <p>青の濃度を示す整数</p>
+
+        </li>
+    </ul>
+    <br><div class="returns"><strong>Returns:</strong> &lt;String&gt; <p>CSSで指定するフォーマット形式の文字列</p>
+</div>
+        <h5>Example</h5>
+        <pre class="code prettyprint"><code>String color = Hg.RGB(255, 255, 0); // 黄色
+HgSetColor(color);
+
+HgSetColor(Hg.RGB(0, 255, 255)); // シアンに変更
+</code></pre>
+
+</div>
+<a name="methods_RGBA"></a>
+<div class="method item">
+    String <strong class="name"><code>RGBA</code></strong>( <code>r, g, b, a </code> ) 
+    <br>
+    <span class="foundat">
+        
+        <a href="../files/handyGraphic.js.html#l968"><code>handyGraphic.js:968</code></a>
+    </span><br>
+    <p>透明度を指定して，赤，緑，青の三原色の数値を元にを作成する．
+引数の数値は 0 &lt;= r, g, b &lt;= 255 の整数で指定する．
+アルファ値は 0.0 &lt;= a &lt;= 1.0 の範囲内の値で指定する．</p>
+
+    <strong>Parameters:</strong>
+    <ul class="params">
+        <li>
+            <code>r</code> <strong>&lt;Number&gt;</strong>
+        <p>赤の濃度を示す整数</p>
+
+        </li>
+        <li>
+            <code>g</code> <strong>&lt;Number&gt;</strong>
+        <p>緑の濃度を示す整数</p>
+
+        </li>
+        <li>
+            <code>b</code> <strong>&lt;Number&gt;</strong>
+        <p>青の濃度を示す整数</p>
+
+        </li>
+        <li>
+            <code>a</code> <strong>&lt;Number&gt;</strong>
+        <p>アルファ値</p>
+
+        </li>
+    </ul>
+    <br><div class="returns"><strong>Returns:</strong> &lt;String&gt; <p>CSSで指定するフォーマット形式の文字列</p>
+</div>
+        <h5>Example</h5>
+        <pre class="code prettyprint"><code>String color = Hg.RGB(255, 255, 0, 0.5); // 半透明な黄色
+HgSetColor(color);
+
+HgSetColor(Hg.RGB(0, 255, 255, 0.5)); // 半透明なシアンに変更
+</code></pre>
+
+</div>
+<a name="methods_SetColor"></a>
+<div class="method item">
+     <strong class="name"><code>SetColor</code></strong>( <code>color </code> ) 
+    <br>
+    <span class="foundat">
+        
+        <a href="../files/handyGraphic.js.html#l203"><code>handyGraphic.js:203</code></a>
+    </span><br>
+    <p>描画する線の色を変更する．
+いったん色を指定すると，別の色を指定するまで同じ色が使われます．一度も指定しない場合は黒で描画する．
+colorに指定する色はCSSで指定するフォーマットに対応</p>
+
+    <strong>Parameters:</strong>
+    <ul class="params">
+        <li>
+            <code>color</code> <strong>&lt;String&gt;</strong>
+        <p>線の色を表す文字列</p>
+
+        </li>
+    </ul>
+        <h5>Example</h5>
+        <pre class="code prettyprint"><code>Hg.SetColor(&quot;red&quot;); // 色名で指定
+Hg.SetColor(&quot;rgb(192, 80, 77)&quot;); // rgb(r, g, b) 指定
+Hg.SetColor(&quot;#FF0000&quot;); // カラーコード指定
+Hg.SetColor(Hg.RGB(192, 80, 77); // RGBメソッドを使用
+</code></pre>
+
+</div>
+<a name="methods_SetFillColor"></a>
+<div class="method item">
+     <strong class="name"><code>SetFillColor</code></strong>( <code>color </code> ) 
+    <br>
+    <span class="foundat">
+        
+        <a href="../files/handyGraphic.js.html#l221"><code>handyGraphic.js:221</code></a>
+    </span><br>
+    <p>図形の塗りつぶす色を変更する．
+colorに指定する色はCSSで指定するフォーマットに対応．
+別の色を指定するまで同じ色が使われます．一度も指定しない場合は白で塗りつぶされます．</p>
+
+    <strong>Parameters:</strong>
+    <ul class="params">
+        <li>
+            <code>color</code> <strong>&lt;String&gt;</strong>
+        <p>塗りつぶす色を表す文字列</p>
+
+        </li>
+    </ul>
+        <h5>Example</h5>
+        <pre class="code prettyprint"><code>Hg.SetFillColor(&quot;red&quot;); // 色名で指定
+Hg.SetFillColor(&quot;rgb(192, 80, 77)&quot;); // rgb(r, g, b) 指定
+Hg.SetFillColor(&quot;#FF0000&quot;); // カラーコード指定
+Hg.SetFillColor(Hg.RGB(192, 80, 77); // RGBメソッドを使用
+</code></pre>
+
+</div>
+<a name="methods_SetFont"></a>
+<div class="method item">
+     <strong class="name"><code>SetFont</code></strong>( <code>x, y, 表示する文字列 </code> ) 
+    <br>
+    <span class="foundat">
+        
+        <a href="../files/handyGraphic.js.html#l457"><code>handyGraphic.js:457</code></a>
+    </span><br>
+    <p>文字列を描画する場合のフォントと大きさを指定する．
+いったん指定されると，別の指定があるまで同じ字体と大きさが使われる．</p>
+
+    <strong>Parameters:</strong>
+    <ul class="params">
+        <li>
+            <code>x</code> <strong>&lt;Number&gt;</strong>
+        <p>x座標</p>
+
+        </li>
+        <li>
+            <code>y</code> <strong>&lt;Number&gt;</strong>
+        <p>y座標</p>
+
+        </li>
+        <li>
+            <code>表示する文字列</code> <strong>&lt;String&gt;</strong>
+         
+        </li>
+    </ul>
+        <h5>Example</h5>
+        <pre class="code prettyprint"><code>Hg.SetFont(&quot;sans-serif&quot;, 12);
+</code></pre>
+
+</div>
+<a name="methods_SetWidth"></a>
+<div class="method item">
+     <strong class="name"><code>SetWidth</code></strong>( <code>t </code> ) 
+    <br>
+    <span class="foundat">
+        
+        <a href="../files/handyGraphic.js.html#l188"><code>handyGraphic.js:188</code></a>
+    </span><br>
+    <p>描画する線の太さを変更する．
+指定できるのは0より大きい数値のみで，それ以外の値を指定しても無視されます．</p>
+
+    <strong>Parameters:</strong>
+    <ul class="params">
+        <li>
+            <code>t</code> <strong>&lt;Number&gt;</strong>
+        <p>線の太さを示す数値</p>
+
+        </li>
+    </ul>
+        <h5>Example</h5>
+        <pre class="code prettyprint"><code>Hg.SetWidth(1); // 線の太さを1に指定（デフォルト値）
+Hg.SetWidth(3); // 線の太さを3に指定
+</code></pre>
+
+</div>
+<a name="methods_Text"></a>
+<div class="method item">
+     <strong class="name"><code>Text</code></strong>( <code>x, y, 表示する文字列 </code> ) 
+    <br>
+    <span class="foundat">
+        
+        <a href="../files/handyGraphic.js.html#l441"><code>handyGraphic.js:441</code></a>
+    </span><br>
+    <p>座標(x, y)を左下隅として，指定された文字列を描きます．
+左下隅の座標はウィンドウの外部の点でも構いません．</p>
+
+    <strong>Parameters:</strong>
+    <ul class="params">
+        <li>
+            <code>x</code> <strong>&lt;Number&gt;</strong>
+        <p>x座標</p>
+
+        </li>
+        <li>
+            <code>y</code> <strong>&lt;Number&gt;</strong>
+        <p>y座標</p>
+
+        </li>
+        <li>
+            <code>表示する文字列</code> <strong>&lt;String&gt;</strong>
+         
+        </li>
+    </ul>
+        <h5>Example</h5>
+        <pre class="code prettyprint"><code>Hg.Text(10, 10, &quot;Hello World&quot;);
+</code></pre>
+
+</div>
+<a name="methods_WArc"></a>
+<div class="method item">
+     <strong class="name"><code>WArc</code></strong>( <code>win, x, y, r, a0, a1 </code> ) 
+    <br>
+    <span class="foundat">
+        
+        <a href="../files/handyGraphic.js.html#l755"><code>handyGraphic.js:755</code></a>
+    </span><br>
+    <p>指定したウィンドウに 座標(x, y) を中心とした半径rの円について，開始角度 a0 と終了角度 a1 を指定して円弧を描画．
+円弧は始点角度から終了角度までを反時計回りに結びます．中心座標はウィンドウの外部でも良い．</p>
+<p>角度は， 0 ~ 360 で表される整数を使います．</p>
+
+    <strong>Parameters:</strong>
+    <ul class="params">
+        <li>
+            <code>win</code> <strong>&lt;Window&gt;</strong>
+        <p>指定するウィンドウ</p>
+
+        </li>
+        <li>
+            <code>x</code> <strong>&lt;Number&gt;</strong>
+        <p>円弧の中心のx座標</p>
+
+        </li>
+        <li>
+            <code>y</code> <strong>&lt;Number&gt;</strong>
+        <p>円弧の中心のy座標</p>
+
+        </li>
+        <li>
+            <code>r</code> <strong>&lt;Number&gt;</strong>
+        <p>円弧の半径</p>
+
+        </li>
+        <li>
+            <code>a0</code> <strong>&lt;Number&gt;</strong>
+        <p>開始角度</p>
+
+        </li>
+        <li>
+            <code>a1</code> <strong>&lt;Number&gt;</strong>
+        <p>終了角度</p>
+
+        </li>
+    </ul>
+        <h5>Example</h5>
+        <pre class="code prettyprint"><code>Hg.WArc(win1, 10, 10, 5, 0, 135); 
+Hg.WArc(win2, 10, 10, 5, 0, 135); 
+</code></pre>
+
+</div>
+<a name="methods_WBox"></a>
+<div class="method item">
+     <strong class="name"><code>WBox</code></strong>( <code>win, x, y, w, r </code> ) 
+    <br>
+    <span class="foundat">
+        
+        <a href="../files/handyGraphic.js.html#l632"><code>handyGraphic.js:632</code></a>
+    </span><br>
+    <p>指定したウィンドウに 座標(x, y) を左下隅とする幅w，高さhの長方形を描画．
+左下隅の座標ははウィンドウの外部の点でも構いません．</p>
+
+    <strong>Parameters:</strong>
+    <ul class="params">
+        <li>
+            <code>win</code> <strong>&lt;Window&gt;</strong>
+        <p>指定するウィンドウ</p>
+
+        </li>
+        <li>
+            <code>x</code> <strong>&lt;Number&gt;</strong>
+        <p>左下隅のx座標</p>
+
+        </li>
+        <li>
+            <code>y</code> <strong>&lt;Number&gt;</strong>
+        <p>左下隅のy座標</p>
+
+        </li>
+        <li>
+            <code>w</code> <strong>&lt;Number&gt;</strong>
+        <p>幅</p>
+
+        </li>
+        <li>
+            <code>r</code> <strong>&lt;Number&gt;</strong>
+        <p>高さ</p>
+
+        </li>
+    </ul>
+        <h5>Example</h5>
+        <pre class="code prettyprint"><code>Hg.WBox(win1, 10, 10, 3, 5);
+Hg.WBox(win2, 10, 10, 3, 5);
+</code></pre>
+
+</div>
+<a name="methods_WBoxFill"></a>
+<div class="method item">
+     <strong class="name"><code>WBoxFill</code></strong>( <code>win, x, y, w, r, stroke </code> ) 
+    <br>
+    <span class="foundat">
+        
+        <a href="../files/handyGraphic.js.html#l654"><code>handyGraphic.js:654</code></a>
+    </span><br>
+    <p>指定したウィンドウに 座標(x, y) を左下隅とする幅w，高さhの塗りつぶされた長方形を描画．
+左下隅の座標はウィンドウの外部の点でも構いません．</p>
+<p>引数 stroke が 0 の場合は周囲に長方形を描きません．
+0 以外の値(例えば 1)の場合，他の線図形と同じ太さ，同じ色の線で長方形を描きます．</p>
+
+    <strong>Parameters:</strong>
+    <ul class="params">
+        <li>
+            <code>win</code> <strong>&lt;Window&gt;</strong>
+        <p>指定するウィンドウ</p>
+
+        </li>
+        <li>
+            <code>x</code> <strong>&lt;Number&gt;</strong>
+        <p>左下隅のx座標</p>
+
+        </li>
+        <li>
+            <code>y</code> <strong>&lt;Number&gt;</strong>
+        <p>左下隅のy座標</p>
+
+        </li>
+        <li>
+            <code>w</code> <strong>&lt;Number&gt;</strong>
+        <p>幅</p>
+
+        </li>
+        <li>
+            <code>r</code> <strong>&lt;Number&gt;</strong>
+        <p>高さ</p>
+
+        </li>
+        <li>
+            <code>stroke</code> <strong>&lt;Number&gt;</strong>
+        <p>周囲を描くかどうか</p>
+
+        </li>
+    </ul>
+        <h5>Example</h5>
+        <pre class="code prettyprint"><code>Hg.WBoxFill(win1, 10, 10, 3, 5);
+Hg.WBoxFill(win2, 10, 10, 3, 5, 0);
+Hg.WBoxFill(win2, 10, 10, 3, 5, 1);
+</code></pre>
+
+</div>
+<a name="methods_WCircle"></a>
+<div class="method item">
+     <strong class="name"><code>WCircle</code></strong>( <code>win, x, y, r </code> ) 
+    <br>
+    <span class="foundat">
+        
+        <a href="../files/handyGraphic.js.html#l578"><code>handyGraphic.js:578</code></a>
+    </span><br>
+    <p>指定したウィンドウに 座標(x, y) を中心とした半径rの円を描画．
+中心点はウィンドウの外部の点でも構いません．</p>
+
+    <strong>Parameters:</strong>
+    <ul class="params">
+        <li>
+            <code>win</code> <strong>&lt;Window&gt;</strong>
+        <p>指定するウィンドウ</p>
+
+        </li>
+        <li>
+            <code>x</code> <strong>&lt;Number&gt;</strong>
+        <p>中心のx座標</p>
+
+        </li>
+        <li>
+            <code>y</code> <strong>&lt;Number&gt;</strong>
+        <p>中心のy座標</p>
+
+        </li>
+        <li>
+            <code>r</code> <strong>&lt;Number&gt;</strong>
+        <p>半径</p>
+
+        </li>
+    </ul>
+        <h5>Example</h5>
+        <pre class="code prettyprint"><code>Hg.WCircle(win1, 10, 10, 5);
+Hg.WCircle(win2, 10, 10, 5);
+</code></pre>
+
+</div>
+<a name="methods_WCircleFill"></a>
+<div class="method item">
+     <strong class="name"><code>WCircleFill</code></strong>( <code>win, x, y, r, stroke </code> ) 
+    <br>
+    <span class="foundat">
+        
+        <a href="../files/handyGraphic.js.html#l600"><code>handyGraphic.js:600</code></a>
+    </span><br>
+    <p>指定したウィンドウに 座標(x, y) を中心とした半径rの塗りつぶされた円を描画．
+中心点はウィンドウの外部の点でも構いません．</p>
+<p>引数 stroke が 0 の場合は円周を描きません．
+0 以外の値(例えば 1)の場合，他の線と同じ太さ，同じ色の線で円周を描きます．</p>
+
+    <strong>Parameters:</strong>
+    <ul class="params">
+        <li>
+            <code>win</code> <strong>&lt;Window&gt;</strong>
+        <p>指定するウィンドウ</p>
+
+        </li>
+        <li>
+            <code>x</code> <strong>&lt;Number&gt;</strong>
+        <p>中心のx座標</p>
+
+        </li>
+        <li>
+            <code>y</code> <strong>&lt;Number&gt;</strong>
+        <p>中心のy座標</p>
+
+        </li>
+        <li>
+            <code>r</code> <strong>&lt;Number&gt;</strong>
+        <p>半径</p>
+
+        </li>
+        <li>
+            <code>stroke</code> <strong>&lt;Number&gt;</strong>
+        <p>円周を描くかどうか</p>
+
+        </li>
+    </ul>
+        <h5>Example</h5>
+        <pre class="code prettyprint"><code>Hg.CircleFill(win1, 10, 10, 5);
+Hg.CircleFill(win2, 10, 10, 5, 0);
+Hg.CircleFill(win2, 10, 10, 5, 1);
+</code></pre>
+
+</div>
+<a name="methods_WClear"></a>
+<div class="method item">
+     <strong class="name"><code>WClear</code></strong>( <code>win </code> ) 
+    <br>
+    <span class="foundat">
+        
+        <a href="../files/handyGraphic.js.html#l888"><code>handyGraphic.js:888</code></a>
+    </span><br>
+    <p>指定したウィンドウ内に書かれたすべての図形や文字を消去する．</p>
+
+    <strong>Parameters:</strong>
+    <ul class="params">
+        <li>
+            <code>win</code> <strong>&lt;Window&gt;</strong>
+        <p>指定するウィンドウ</p>
+
+        </li>
+    </ul>
+        <h5>Example</h5>
+        <pre class="code prettyprint"><code>Hg.WClear(win1); // win1ウィンドウの初期化
+Hg.WClear(win2); // win2ウィンドウの初期化
+</code></pre>
+
+</div>
+<a name="methods_WFan"></a>
+<div class="method item">
+     <strong class="name"><code>WFan</code></strong>( <code>win, x, y, r, a0, a1 </code> ) 
+    <br>
+    <span class="foundat">
+        
+        <a href="../files/handyGraphic.js.html#l781"><code>handyGraphic.js:781</code></a>
+    </span><br>
+    <p>指定したウィンドウに 座標(x, y) を中心とした半径rの円について，開始角度 a0 と終了角度 a1 を指定して扇型の孤を描画．
+扇型の弧は始点角度から終了角度までを反時計回りに結びます．中心座標はウィンドウの外部でも良い．</p>
+<p>角度は， 0 ~ 360 で表される整数を使います．</p>
+
+    <strong>Parameters:</strong>
+    <ul class="params">
+        <li>
+            <code>win</code> <strong>&lt;Window&gt;</strong>
+        <p>指定するウィンドウ</p>
+
+        </li>
+        <li>
+            <code>x</code> <strong>&lt;Number&gt;</strong>
+        <p>弧の中心のx座標</p>
+
+        </li>
+        <li>
+            <code>y</code> <strong>&lt;Number&gt;</strong>
+        <p>弧の中心のy座標</p>
+
+        </li>
+        <li>
+            <code>r</code> <strong>&lt;Number&gt;</strong>
+        <p>弧の半径</p>
+
+        </li>
+        <li>
+            <code>a0</code> <strong>&lt;Number&gt;</strong>
+        <p>開始角度</p>
+
+        </li>
+        <li>
+            <code>a1</code> <strong>&lt;Number&gt;</strong>
+        <p>終了角度</p>
+
+        </li>
+    </ul>
+        <h5>Example</h5>
+        <pre class="code prettyprint"><code>Hg.WFan(win1, 10, 10, 5, 0, 135); 
+Hg.WFan(win2, 10, 10, 5, 0, 135); 
+</code></pre>
+
+</div>
+<a name="methods_WFanFill"></a>
+<div class="method item">
+     <strong class="name"><code>WFanFill</code></strong>( <code>win, x, y, r, a0, a1, stroke </code> ) 
+    <br>
+    <span class="foundat">
+        
+        <a href="../files/handyGraphic.js.html#l809"><code>handyGraphic.js:809</code></a>
+    </span><br>
+    <p>指定したウィンドウに 座標(x, y) を中心とした半径rの円について，開始角度 a0 と終了角度 a1 を指定して塗りつぶされた扇型を描画．
+扇型の弧は始点角度から終了角度までを反時計回りに結びます．中心座標はウィンドウの外部でも良い．</p>
+<p>引数 stroke が 0 の場合は周囲の線を描きません．
+角度は， 0 ~ 360 で表される整数を使います．</p>
+
+    <strong>Parameters:</strong>
+    <ul class="params">
+        <li>
+            <code>win</code> <strong>&lt;Window&gt;</strong>
+        <p>指定するウィンドウ</p>
+
+        </li>
+        <li>
+            <code>x</code> <strong>&lt;Number&gt;</strong>
+        <p>弧の中心のx座標</p>
+
+        </li>
+        <li>
+            <code>y</code> <strong>&lt;Number&gt;</strong>
+        <p>弧の中心のy座標</p>
+
+        </li>
+        <li>
+            <code>r</code> <strong>&lt;Number&gt;</strong>
+        <p>弧の半径</p>
+
+        </li>
+        <li>
+            <code>a0</code> <strong>&lt;Number&gt;</strong>
+        <p>開始角度</p>
+
+        </li>
+        <li>
+            <code>a1</code> <strong>&lt;Number&gt;</strong>
+        <p>終了角度</p>
+
+        </li>
+        <li>
+            <code>stroke</code> <strong>&lt;Number&gt;</strong>
+        <p>周囲を描くかどうか</p>
+
+        </li>
+    </ul>
+        <h5>Example</h5>
+        <pre class="code prettyprint"><code>Hg.WFanFill(win1, 10, 10, 5, 0, 135);
+Hg.WFanFill(win2, 10, 10, 5, 0, 135, 0);
+Hg.WFanFill(win2, 10, 10, 5, 0, 135, 1);
+</code></pre>
+
+</div>
+<a name="methods_WLine"></a>
+<div class="method item">
+     <strong class="name"><code>WLine</code></strong>( <code>win, x0, y0, x1, y0 </code> ) 
+    <br>
+    <span class="foundat">
+        
+        <a href="../files/handyGraphic.js.html#l553"><code>handyGraphic.js:553</code></a>
+    </span><br>
+    <p>指定したウィンドウに (x0, y0) と (x1, y1) を結ぶ線分を描画．
+これらの点はウィンドウの外部の点でも構いません．</p>
+
+    <strong>Parameters:</strong>
+    <ul class="params">
+        <li>
+            <code>win</code> <strong>&lt;Window&gt;</strong>
+        <p>指定するウィンドウ</p>
+
+        </li>
+        <li>
+            <code>x0</code> <strong>&lt;Number&gt;</strong>
+        <p>始点のx座標</p>
+
+        </li>
+        <li>
+            <code>y0</code> <strong>&lt;Number&gt;</strong>
+        <p>始点のy座標</p>
+
+        </li>
+        <li>
+            <code>x1</code> <strong>&lt;Number&gt;</strong>
+        <p>終点のx座標</p>
+
+        </li>
+        <li>
+            <code>y0</code> <strong>&lt;Number&gt;</strong>
+        <p>終点のy座標</p>
+
+        </li>
+    </ul>
+        <h5>Example</h5>
+        <pre class="code prettyprint"><code>Hg.WLine(win1, 100, 100, 300, 300);
+Hg.WLine(win2, 100, 100, 300, 300);
+</code></pre>
+
+</div>
+<a name="methods_WOpen"></a>
+<div class="method item">
+    Window <strong class="name"><code>WOpen</code></strong>( <code>w, h, canvasId </code> ) 
+    <br>
+    <span class="foundat">
+        
+        <a href="../files/handyGraphic.js.html#l485"><code>handyGraphic.js:485</code></a>
+    </span><br>
+    <p>描画するウィンドウを作成する．Openメソッドと違い，WOpenメソッドはカレントウィンドウが変更されません．</p>
+
+    <strong>Parameters:</strong>
+    <ul class="params">
+        <li>
+            <code>w</code> <strong>&lt;Number&gt;</strong>
+        <p>ウィンドウの幅</p>
+
+        </li>
+        <li>
+            <code>h</code> <strong>&lt;Number&gt;</strong>
+        <p>ウィンドウの高さ</p>
+
+        </li>
+        <li>
+            <code>canvasId</code> <strong>&lt;String&gt;</strong>
+        <p>canvasのId</p>
+
+        </li>
+    </ul>
+    <br><div class="returns"><strong>Returns:</strong> &lt;Window&gt; <p>ウィンドウオブジェクト</p>
+</div>
+        <h5>Example</h5>
+        <pre class="code prettyprint"><code>var win1 = Hg.Open(400, 400); // 400x400のウィンドウを作成
+var win2 = Hg.WOpen(300, 300, &quot;canvas2&quot;); // カレントウィンドウが変更されない
+</code></pre>
+
+</div>
+<a name="methods_WPolygon"></a>
+<div class="method item">
+     <strong class="name"><code>WPolygon</code></strong>( <code>win, n, x, y </code> ) 
+    <br>
+    <span class="foundat">
+        
+        <a href="../files/handyGraphic.js.html#l685"><code>handyGraphic.js:685</code></a>
+    </span><br>
+    <p>指定したウィンドウに 指定された座標群 x，y を結ぶような多角形を描画．
+最初の点と最後の点の間が結ばれます．</p>
+
+    <strong>Parameters:</strong>
+    <ul class="params">
+        <li>
+            <code>win</code> <strong>&lt;Window&gt;</strong>
+        <p>指定するウィンドウ</p>
+
+        </li>
+        <li>
+            <code>n</code> <strong>&lt;Number&gt;</strong>
+        <p>頂点数</p>
+
+        </li>
+        <li>
+            <code>x</code> <strong>&lt;Array&gt;</strong>
+        <p>x座標の配列</p>
+
+        </li>
+        <li>
+            <code>y</code> <strong>&lt;Array&gt;</strong>
+        <p>y座標の配列</p>
+
+        </li>
+    </ul>
+        <h5>Example</h5>
+        <pre class="code prettyprint"><code>var x = [x0, x1, x2, x3, x4];
+var y = [y0, y1, y2, y3, y4];
+
+Hg.WPolygon(win1, 5, x, y);
+Hg.WPolygon(win2, 5, x, y);
+</code></pre>
+
+</div>
+<a name="methods_WPolygonFill"></a>
+<div class="method item">
+     <strong class="name"><code>WPolygonFill</code></strong>( <code>win, n, x, y, stroke </code> ) 
+    <br>
+    <span class="foundat">
+        
+        <a href="../files/handyGraphic.js.html#l713"><code>handyGraphic.js:713</code></a>
+    </span><br>
+    <p>指定したウィンドウに 指定された座標群 x，y を結ぶような塗りつぶされた多角形を描画．
+最初の点と最後の点の間が結ばれます．</p>
+<p>引数 stroke が 0 の場合は周囲の線を描きません．</p>
+
+    <strong>Parameters:</strong>
+    <ul class="params">
+        <li>
+            <code>win</code> <strong>&lt;Window&gt;</strong>
+        <p>指定するウィンドウ</p>
+
+        </li>
+        <li>
+            <code>n</code> <strong>&lt;Number&gt;</strong>
+        <p>頂点数</p>
+
+        </li>
+        <li>
+            <code>x</code> <strong>&lt;Array&gt;</strong>
+        <p>x座標の配列</p>
+
+        </li>
+        <li>
+            <code>y</code> <strong>&lt;Array&gt;</strong>
+        <p>y座標の配列</p>
+
+        </li>
+        <li>
+            <code>stroke</code> <strong>&lt;Number&gt;</strong>
+        <p>周囲を描くかどうか</p>
+
+        </li>
+    </ul>
+        <h5>Example</h5>
+        <pre class="code prettyprint"><code>var x = [x0, x1, x2, x3, x4];
+var y = [y0, y1, y2, y3, y4];
+
+Hg.WPolygonFill(win1, 5, x, y);
+Hg.WPolygonFill(win2, 5, x, y, 0);
+Hg.WPolygonFill(win2, 5, x, y, 1);
+</code></pre>
+
+</div>
+<a name="methods_WSetColor"></a>
+<div class="method item">
+     <strong class="name"><code>WSetColor</code></strong>( <code>win, color </code> ) 
+    <br>
+    <span class="foundat">
+        
+        <a href="../files/handyGraphic.js.html#l519"><code>handyGraphic.js:519</code></a>
+    </span><br>
+    <p>指定したウィンドウの描画する線の色を変更する
+いったん色を指定すると，別の色を指定するまで同じ色が使われます．一度も指定しない場合は黒で描画する．
+colorに指定する色はCSSで指定するフォーマットに対応</p>
+
+    <strong>Parameters:</strong>
+    <ul class="params">
+        <li>
+            <code>win</code> <strong>&lt;Window&gt;</strong>
+        <p>指定するウィンドウ</p>
+
+        </li>
+        <li>
+            <code>color</code> <strong>&lt;String&gt;</strong>
+        <p>線の色を表す文字列</p>
+
+        </li>
+    </ul>
+        <h5>Example</h5>
+        <pre class="code prettyprint"><code>Hg.SetColor(win1, &quot;red&quot;); 
+Hg.SetColor(win2, Hg.RGB(192, 80, 77);
+</code></pre>
+
+</div>
+<a name="methods_WSetFillColor"></a>
+<div class="method item">
+     <strong class="name"><code>WSetFillColor</code></strong>( <code>win, color </code> ) 
+    <br>
+    <span class="foundat">
+        
+        <a href="../files/handyGraphic.js.html#l536"><code>handyGraphic.js:536</code></a>
+    </span><br>
+    <p>指定したウィンドウの図形の塗りつぶす色を変更する
+colorに指定する色はCSSで指定するフォーマットに対応
+別の色を指定するまで同じ色が使われます．一度も指定しない場合は白で塗りつぶされます．</p>
+
+    <strong>Parameters:</strong>
+    <ul class="params">
+        <li>
+            <code>win</code> <strong>&lt;Window&gt;</strong>
+        <p>指定するウィンドウ</p>
+
+        </li>
+        <li>
+            <code>color</code> <strong>&lt;String&gt;</strong>
+        <p>塗りつぶす色を表す文字列</p>
+
+        </li>
+    </ul>
+        <h5>Example</h5>
+        <pre class="code prettyprint"><code>Hg.SetFillColor(win1, &quot;red&quot;);
+Hg.SetFillColor(win2, Hg.RGB(192, 80, 77);
+</code></pre>
+
+</div>
+<a name="methods_WSetText"></a>
+<div class="method item">
+     <strong class="name"><code>WSetText</code></strong>( <code>win, x, y, 表示する文字列 </code> ) 
+    <br>
+    <span class="foundat">
+        
+        <a href="../files/handyGraphic.js.html#l868"><code>handyGraphic.js:868</code></a>
+    </span><br>
+    <p>指定するウィンドウに 文字列を描画する場合のフォントと大きさを指定する．
+いったん指定されると，別の指定があるまで同じ字体と大きさが使われる．</p>
+
+    <strong>Parameters:</strong>
+    <ul class="params">
+        <li>
+            <code>win</code> <strong>&lt;Window&gt;</strong>
+        <p>指定するウィンドウ</p>
+
+        </li>
+        <li>
+            <code>x</code> <strong>&lt;Number&gt;</strong>
+        <p>x座標</p>
+
+        </li>
+        <li>
+            <code>y</code> <strong>&lt;Number&gt;</strong>
+        <p>y座標</p>
+
+        </li>
+        <li>
+            <code>表示する文字列</code> <strong>&lt;String&gt;</strong>
+         
+        </li>
+    </ul>
+</div>
+<a name="methods_WSetWidth"></a>
+<div class="method item">
+     <strong class="name"><code>WSetWidth</code></strong>( <code>win, t </code> ) 
+    <br>
+    <span class="foundat">
+        
+        <a href="../files/handyGraphic.js.html#l503"><code>handyGraphic.js:503</code></a>
+    </span><br>
+    <p>指定したウィンドウの描画する線の太さを変更する
+指定できるのは0より大きい数値のみで，それ以外の値を指定しても無視されます．</p>
+
+    <strong>Parameters:</strong>
+    <ul class="params">
+        <li>
+            <code>win</code> <strong>&lt;Window&gt;</strong>
+        <p>指定するウィンドウ</p>
+
+        </li>
+        <li>
+            <code>t</code> <strong>&lt;Number&gt;</strong>
+        <p>線の太さを示す数値</p>
+
+        </li>
+    </ul>
+        <h5>Example</h5>
+        <pre class="code prettyprint"><code>Hg.WSetWidth(win1, 5); // win1の線の太さを5に指定
+Hg.WSetWidth(win2, 3); // win2の線の太さを3に指定
+</code></pre>
+
+</div>
+<a name="methods_WText"></a>
+<div class="method item">
+     <strong class="name"><code>WText</code></strong>( <code>win, x, y, 表示する文字列 </code> ) 
+    <br>
+    <span class="foundat">
+        
+        <a href="../files/handyGraphic.js.html#l848"><code>handyGraphic.js:848</code></a>
+    </span><br>
+    <p>指定するウィンドウに 座標(x, y)を左下隅として，指定された文字列を描きます．
+左下隅の座標はウィンドウの外部の点でも構いません．</p>
+
+    <strong>Parameters:</strong>
+    <ul class="params">
+        <li>
+            <code>win</code> <strong>&lt;Window&gt;</strong>
+        <p>指定するウィンドウ</p>
+
+        </li>
+        <li>
+            <code>x</code> <strong>&lt;Number&gt;</strong>
+        <p>x座標</p>
+
+        </li>
+        <li>
+            <code>y</code> <strong>&lt;Number&gt;</strong>
+        <p>y座標</p>
+
+        </li>
+        <li>
+            <code>表示する文字列</code> <strong>&lt;String&gt;</strong>
+         
+        </li>
+    </ul>
+        <h5>Example</h5>
+        <pre class="code prettyprint"><code>Hg.WText(win1, 10, 10, &quot;Hello World&quot;);
+Hg.WText(win2, 10, 10, &quot;Hello World&quot;);
+</code></pre>
+
+</div>
+            </div>
+            <div id="props">
+<a name="props_win"></a>
+<div class="props item">
+    <code>win</code> &lt;<strong>Window</strong>&gt;<br>
+    <span class="foundat"><a href="../files/handyGraphic.js.html#l157"><code>handyGraphic.js:157</code></a></span>
+    <p>参照しているWindowオブジェクト（カレントウィンドウ）</p>
+
+</div>
+            </div>
+    </div>
+</div>
+</div>
+        </div>
+    </div>
+</div>
+<script src="../assets/vendor/prettify/prettify-min.js"></script>
+<script>prettyPrint();</script>
+<script src="../assets/js/yui-prettify.js"></script>
+<script src="../assets/js/tabs.js"></script>
+</body>
+</html>

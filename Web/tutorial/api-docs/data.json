@@ -1,0 +1,1836 @@
+{
+    "project": {
+        "name": "HandyGraphic.js",
+        "description": "HandyGraphic graphic library written in JavaScript",
+        "version": "0.0.1"
+    },
+    "files": {
+        "archery/main.js": {
+            "name": "archery/main.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "sprite/main.js": {
+            "name": "sprite/main.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "handyGraphic.js": {
+            "name": "handyGraphic.js",
+            "modules": {
+                "handyGraphic": 1
+            },
+            "classes": {
+                "handyGraphic.globalize": 1,
+                "handyGraphic.Window": 1,
+                "handyGraphic.Graphic": 1,
+                "handyGraphic.Util": 1,
+                "handyGraphic.Scene": 1,
+                "handyGraphic.Sprite": 1
+            },
+            "fors": {},
+            "namespaces": {
+                "handyGraphic": 1
+            }
+        }
+    },
+    "modules": {
+        "handyGraphic": {
+            "name": "handyGraphic",
+            "submodules": {},
+            "elements": {},
+            "classes": {
+                "handyGraphic.globalize": 1,
+                "handyGraphic.Window": 1,
+                "handyGraphic.Graphic": 1,
+                "handyGraphic.Util": 1,
+                "handyGraphic.Scene": 1,
+                "handyGraphic.Sprite": 1
+            },
+            "fors": {},
+            "namespaces": {
+                "handyGraphic": 1
+            },
+            "tag": "module",
+            "file": "handyGraphic.js",
+            "line": 1199,
+            "description": "グラフィックスライブラリ HandyGraphic.js\n\n基本的に，各APIのサンプルコードは以下のテンプレートを前提にしています．\nまた，動作に必要な変数宣言などを省略している場合もあるので，ご了承ください．\n\n```\nhandyGraphic.globalize(); // handyGraphic.jsをグローバル展開する\nwindow.onload = function () {\n  var Hg = new Graphic(); // Graphicオブジェクトを作成する\n  var win = Hg.Open(400, 400); // 描画するウィンドウを作成する\n\n  // 以降に処理を書いていきます．\n  // 図形の描画，Scene，Spriteの作成など\n}\n```"
+        }
+    },
+    "classes": {
+        "handyGraphic.globalize": {
+            "name": "handyGraphic.globalize",
+            "shortname": "handyGraphic.globalize",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "handyGraphic",
+            "namespace": "handyGraphic",
+            "file": "handyGraphic.js",
+            "line": 31,
+            "description": "handyGraphic.js をグローバル領域に展開．\n\n各オブジェクトをグローバル領域に展開することで，名前空間の指定を省くことができます．\nただし，各オブジェクト名がグローバル空間内で使用されていないことが前提です．",
+            "is_constructor": 1,
+            "example": [
+                "\n```\n// globalize を実行しない\nvar Hg = new handyGraphic.Graphic();\nvar win = new handyGraohic.Window(300, 300);\nvar scene1 = new handyGraphic.Scene();\n\n// グローバル領域に展開\nhandyGraphic.globalize();\nvar Hg = new Graphic();\nvar win = new Window(300, 300);\nvar scene1 = new Scene();\n```"
+            ]
+        },
+        "handyGraphic.Window": {
+            "name": "handyGraphic.Window",
+            "shortname": "handyGraphic.Window",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "handyGraphic",
+            "namespace": "handyGraphic",
+            "file": "handyGraphic.js",
+            "line": 67,
+            "description": "Window オブジェクトは，ウィンドウのインスタンスです．\n描画処理に代表される画面に見える処理は，実際のところ Window オブジェクトに対して行われています．\nWindow オブジェクトの作成は，Graphic オブジェクトの Open，WOpen メソッドを用いて作成することがベストプラクティスです．\n\nまた，1つのWebページに複数のウィンドウを作成することもできます．\nその場合は Window オブジェクトを表示する画面の数だけ作成する必要があります．",
+            "is_constructor": 1,
+            "params": [
+                {
+                    "name": "w",
+                    "description": "ウィンドウの幅",
+                    "type": "Number"
+                },
+                {
+                    "name": "h",
+                    "description": "ウィンドウの高さ",
+                    "type": "Number"
+                },
+                {
+                    "name": "id",
+                    "description": "Canvasのid",
+                    "type": "Number"
+                }
+            ]
+        },
+        "handyGraphic.Graphic": {
+            "name": "handyGraphic.Graphic",
+            "shortname": "handyGraphic.Graphic",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "handyGraphic",
+            "namespace": "handyGraphic",
+            "file": "handyGraphic.js",
+            "line": 129,
+            "description": "Graphic オブジェクトは基本的な図形の描画，文字の表示，描画設定の変更などをサポートしています．\n\nGraphic オブジェクトの各機能は C言語版 Handy Graphic の描画機能を参考にしています．\n変数名を Hg とすることで，C言語版の関数名と同じように扱うことができます．\nまた，一部のメソッドは仕様が変わっているものもあるので，APIドキュメントを随時参照してください．\n\nウィンドウを指定して描画を行う場合は，WLine，WCircleなどを使用します．\nウィンドウは，Open，WOpen メソッドを使用することで作成することができます．\nOpen メソッドは実行するたびにカレントウィンドウが変更されることに注意してください．\nカレントウィンドウとは，ウィンドウを指定せずに描画メソッドを実行した場合に描画が行われるウィンドウです．",
+            "is_constructor": 1,
+            "example": [
+                "\n```\nhandyGraphic.globalize(); // handyGraphic.jsをグローバル展開する\nwindow.onload = function () {\n  var Hg = new Graphic(); // Graphicオブジェクトを作成する\n  var win = Hg.Open(400, 400); // 描画するウィンドウを作成する\n\n  Hg.Line(100, 100, 300, 300); // 直線の描画\n  Hg.Circle(50, 50, 100); // 円の描画\n}\n```"
+            ]
+        },
+        "handyGraphic.Util": {
+            "name": "handyGraphic.Util",
+            "shortname": "handyGraphic.Util",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "handyGraphic",
+            "namespace": "handyGraphic",
+            "file": "handyGraphic.js",
+            "line": 995,
+            "description": "Util オブジェクトは便利な機能を提供する予定です．",
+            "is_constructor": 1
+        },
+        "handyGraphic.Scene": {
+            "name": "handyGraphic.Scene",
+            "shortname": "handyGraphic.Scene",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "handyGraphic",
+            "namespace": "handyGraphic",
+            "file": "handyGraphic.js",
+            "line": 1031,
+            "description": "Scene オブジェクトは，描画単位を論理的に分割するためのものです．\n\nゲームやアニメーションなどを作成する場合は，描画処理が複雑になり，また規模も大きくなります．\nScene オブジェクトを使うことで，描画処理をシーン単位で分割することで管理がしやすくなります．\n例えば，ゲームを作成する場合は，タイトル画面，プレイ画面，スコア画面などの単位に分割することが考えられます．\n当然のことながら，Scene オブジェクトは複数作成することができます．\n\nシーン間の画面遷移や，アニメーションなどはScene オブジェクトの機能を使うことで簡単に実現できます．\n画面遷移はnextSceneメソッド，アニメーションはupdateメソッドを利用します．\n\nまた，Scene オブジェクト作成時に，シーン内変数などを宣言することができます．\nこれは，シーン内だけで必要な変数を宣言する場合や，アニメーションなどを実現する場合に有用です．",
+            "is_constructor": 1,
+            "params": [
+                {
+                    "name": "args",
+                    "description": "シーン内に定義する変数"
+                }
+            ],
+            "example": [
+                "\n```\nvar scene1 = new Scene({t : 0}); // 引数でシーン内変数を宣言する\nscene1.awake = function () {\n    this.t = 0; // 起動時の処理\n};\nscene1.update = function () {\n    this.t += 1; // 更新処理\n    if (this.t >= 200) {\n       this.nextScene(scene2); // シーン遷移\n    }\n};\nscene1.draw = function () {\n    Hg.Clear();\n    Hg.Box(this.t, this.t, 5, 5); \n};\nscene1.start(); // シーンの起動\n```"
+            ]
+        },
+        "handyGraphic.Sprite": {
+            "name": "handyGraphic.Sprite",
+            "shortname": "handyGraphic.Sprite",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "handyGraphic",
+            "namespace": "handyGraphic",
+            "file": "handyGraphic.js",
+            "line": 1199,
+            "description": "Sprite オブジェクトは，図形や画像を表示するための視覚要素です．\nスプライトオブジェクトはStratgy，Commandデザインパターンを取り入れています．\nそれぞれのデザインパターンの詳細については，他の資料を参照してください．\n\nスプライトは自身を自分ではペイントせず，別のオブジェクトに委譲します．\nスプライトの描画はペインターオブジェクトを作成することによって実現します．\nこれはStrategyデザインパターンの一例です．\nペインターはスプライトの引数 painter としてスプライトに紐づけられます．\nペインターの詳細はpaint メソッドに記載しています．\n\nスプライトの振る舞いもスプライト内では定義せず，ビヘイビアオブジェクトを作成します．\nビヘイビアはスプライトの振る舞いをカプセル化し，スプライトに対するコマンドのように扱われます．\nこれはCommandデザインパターンの一例です．\nスプライトはビヘイビアを実行でき，ビヘイビアの配列を保持することができます．\nビヘイビアの詳細はupdate メソッドに記載しています．",
+            "is_constructor": 1,
+            "params": [
+                {
+                    "name": "name",
+                    "description": "スプライトの名前"
+                },
+                {
+                    "name": "painter",
+                    "description": "スプライトをペイントするオブジェクト"
+                },
+                {
+                    "name": "behaviors",
+                    "description": "スプライトの振る舞いの配列"
+                }
+            ],
+            "example": [
+                "\n```\nvar isFall = true,\n    ballPainter = {\n        paint: function (sprite, win) {\n            Hg.Clear();\n            Hg.CircleFill(sprite.x, sprite.y, 20);\n        }\n    },\n    ballToFall = {\n        execute: function (sprite, win, time) {\n            if (isFall) { sprite.y -= 1; } \n\n            if (sprite.y <= 20) {\n                isFall = false; \n            }\n        }\n    },\n    ball = new Sprite(\"ball\", ballPainter, [ ballToFall ]);\n\nball.x = 150;\nball.y = 400;\n\nvar scene1 = new Scene();\nscene1.update = function () {\n    ball.update(win, 1);\n};\nscene1.draw = function () {\n    ball.paint(win);\n};\nscene1.start();\n```"
+            ]
+        }
+    },
+    "elements": {},
+    "classitems": [
+        {
+            "file": "archery/main.js",
+            "line": 1,
+            "description": "main.js v0.0.1\nCopyright (c) 2016 kengo92i",
+            "class": "handyGraphic.globalize"
+        },
+        {
+            "file": "sprite/main.js",
+            "line": 1,
+            "description": "main.js v0.0.1\nCopyright (c) 2016 kengo92i",
+            "class": "handyGraphic.globalize"
+        },
+        {
+            "file": "handyGraphic.js",
+            "line": 1,
+            "description": "handyGraphic.js v0.0.1\nCopyright (c) 2016 kengo92i",
+            "class": "handyGraphic.globalize"
+        },
+        {
+            "file": "handyGraphic.js",
+            "line": 84,
+            "description": "canvasIdで指定されたcanvasオブジェクト\ncanvasIdを指定しない場合は，'#canvas'が指定されたものとする．",
+            "itemtype": "property",
+            "name": "canvas",
+            "type": "{Canvas}",
+            "class": "handyGraphic.Window",
+            "module": "handyGraphic",
+            "namespace": "handyGraphic"
+        },
+        {
+            "file": "handyGraphic.js",
+            "line": 93,
+            "description": "canvasの2Dコンテキスト",
+            "itemtype": "property",
+            "name": "ctx",
+            "type": "{CanvasRenderingContext2D}",
+            "class": "handyGraphic.Window",
+            "module": "handyGraphic",
+            "namespace": "handyGraphic"
+        },
+        {
+            "file": "handyGraphic.js",
+            "line": 100,
+            "description": "ウィンドウの幅を取得する",
+            "itemtype": "method",
+            "name": "getWidth",
+            "return": {
+                "description": "ウィンドウの幅",
+                "type": "Number"
+            },
+            "class": "handyGraphic.Window",
+            "module": "handyGraphic",
+            "namespace": "handyGraphic"
+        },
+        {
+            "file": "handyGraphic.js",
+            "line": 109,
+            "description": "ウィンドウの高さを取得する",
+            "itemtype": "method",
+            "name": "getHeight",
+            "return": {
+                "description": "ウィンドウの高さ",
+                "type": "Number"
+            },
+            "class": "handyGraphic.Window",
+            "module": "handyGraphic",
+            "namespace": "handyGraphic"
+        },
+        {
+            "file": "handyGraphic.js",
+            "line": 118,
+            "description": "描画するための2Dレンダリングコンテキストを取得する",
+            "itemtype": "method",
+            "name": "getContext2d",
+            "return": {
+                "description": "2Dレンダリングコンテキスト",
+                "type": "CanvasRenderingContext2D"
+            },
+            "class": "handyGraphic.Window",
+            "module": "handyGraphic",
+            "namespace": "handyGraphic"
+        },
+        {
+            "file": "handyGraphic.js",
+            "line": 157,
+            "description": "参照しているWindowオブジェクト（カレントウィンドウ）",
+            "itemtype": "property",
+            "name": "win",
+            "type": "{Window}",
+            "class": "handyGraphic.Graphic",
+            "module": "handyGraphic",
+            "namespace": "handyGraphic"
+        },
+        {
+            "file": "handyGraphic.js",
+            "line": 167,
+            "description": "描画するウィンドウを作成する．\n実行するたび，参照しているWindowオブジェクト(カレントウィンドウ)が変更される．\ncanvasId を指定しない場合は，#canvasが指定されているものとしてウィンドウを動作します．",
+            "itemtype": "method",
+            "name": "Open",
+            "params": [
+                {
+                    "name": "w",
+                    "description": "ウィンドウの幅",
+                    "type": "Number"
+                },
+                {
+                    "name": "h",
+                    "description": "ウィンドウの高さ",
+                    "type": "Number"
+                },
+                {
+                    "name": "canvasId",
+                    "description": "canvasのId",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "ウィンドウオブジェクト",
+                "type": "Window"
+            },
+            "example": [
+                "\n```\nvar win1 = Hg.Open(400, 400); // 400x400のウィンドウを作成\nvar win2 = Hg.Open(300, 300, \"canvas2\"); // カレントウィンドウがwin2に変更される\n```"
+            ],
+            "class": "handyGraphic.Graphic",
+            "module": "handyGraphic",
+            "namespace": "handyGraphic"
+        },
+        {
+            "file": "handyGraphic.js",
+            "line": 188,
+            "description": "描画する線の太さを変更する．\n指定できるのは0より大きい数値のみで，それ以外の値を指定しても無視されます．",
+            "itemtype": "method",
+            "name": "SetWidth",
+            "params": [
+                {
+                    "name": "t",
+                    "description": "線の太さを示す数値",
+                    "type": "Number"
+                }
+            ],
+            "example": [
+                "\n```\nHg.SetWidth(1); // 線の太さを1に指定（デフォルト値）\nHg.SetWidth(3); // 線の太さを3に指定\n```"
+            ],
+            "class": "handyGraphic.Graphic",
+            "module": "handyGraphic",
+            "namespace": "handyGraphic"
+        },
+        {
+            "file": "handyGraphic.js",
+            "line": 203,
+            "description": "描画する線の色を変更する．\nいったん色を指定すると，別の色を指定するまで同じ色が使われます．一度も指定しない場合は黒で描画する．\ncolorに指定する色はCSSで指定するフォーマットに対応",
+            "itemtype": "method",
+            "name": "SetColor",
+            "params": [
+                {
+                    "name": "color",
+                    "description": "線の色を表す文字列",
+                    "type": "String"
+                }
+            ],
+            "example": [
+                "\n```\nHg.SetColor(\"red\"); // 色名で指定\nHg.SetColor(\"rgb(192, 80, 77)\"); // rgb(r, g, b) 指定\nHg.SetColor(\"#FF0000\"); // カラーコード指定\nHg.SetColor(Hg.RGB(192, 80, 77); // RGBメソッドを使用\n```"
+            ],
+            "class": "handyGraphic.Graphic",
+            "module": "handyGraphic",
+            "namespace": "handyGraphic"
+        },
+        {
+            "file": "handyGraphic.js",
+            "line": 221,
+            "description": "図形の塗りつぶす色を変更する．\ncolorに指定する色はCSSで指定するフォーマットに対応．\n別の色を指定するまで同じ色が使われます．一度も指定しない場合は白で塗りつぶされます．",
+            "itemtype": "method",
+            "name": "SetFillColor",
+            "params": [
+                {
+                    "name": "color",
+                    "description": "塗りつぶす色を表す文字列",
+                    "type": "String"
+                }
+            ],
+            "example": [
+                "\n```\nHg.SetFillColor(\"red\"); // 色名で指定\nHg.SetFillColor(\"rgb(192, 80, 77)\"); // rgb(r, g, b) 指定\nHg.SetFillColor(\"#FF0000\"); // カラーコード指定\nHg.SetFillColor(Hg.RGB(192, 80, 77); // RGBメソッドを使用\n```"
+            ],
+            "class": "handyGraphic.Graphic",
+            "module": "handyGraphic",
+            "namespace": "handyGraphic"
+        },
+        {
+            "file": "handyGraphic.js",
+            "line": 239,
+            "description": "(x0, y0) と (x1, y1) を結ぶ線分を描画．\nこれらの点はウィンドウの外部の点でも構いません．",
+            "itemtype": "method",
+            "name": "Line",
+            "params": [
+                {
+                    "name": "x0",
+                    "description": "始点のx座標",
+                    "type": "Number"
+                },
+                {
+                    "name": "y0",
+                    "description": "始点のy座標",
+                    "type": "Number"
+                },
+                {
+                    "name": "x1",
+                    "description": "終点のx座標",
+                    "type": "Number"
+                },
+                {
+                    "name": "y0",
+                    "description": "終点のy座標",
+                    "type": "Number"
+                }
+            ],
+            "example": [
+                "\n```\nHg.Line(100, 100, 300, 300); // (100, 100) と (300, 300) を結ぶ線分を描画\n```"
+            ],
+            "class": "handyGraphic.Graphic",
+            "module": "handyGraphic",
+            "namespace": "handyGraphic"
+        },
+        {
+            "file": "handyGraphic.js",
+            "line": 256,
+            "description": "座標(x, y) を中心とした半径rの円を描画．\n中心点はウィンドウの外部の点でも構いません．",
+            "itemtype": "method",
+            "name": "Circle",
+            "params": [
+                {
+                    "name": "x",
+                    "description": "中心のx座標",
+                    "type": "Number"
+                },
+                {
+                    "name": "y",
+                    "description": "中心のy座標",
+                    "type": "Number"
+                },
+                {
+                    "name": "r",
+                    "description": "半径",
+                    "type": "Number"
+                }
+            ],
+            "example": [
+                "\n```\nHg.Circle(10, 10, 5); // (10, 10) を中心とした半径5の円を描画\n```"
+            ],
+            "class": "handyGraphic.Graphic",
+            "module": "handyGraphic",
+            "namespace": "handyGraphic"
+        },
+        {
+            "file": "handyGraphic.js",
+            "line": 272,
+            "description": "座標(x, y) を中心とした半径rの塗りつぶされた円を描画．\n中心点はウィンドウの外部の点でも構いません．\n\n引数 stroke が 0 の場合は円周を描きません．\n0 以外の値(例えば 1)の場合，他の線と同じ太さ，同じ色の線で円周を描きます．",
+            "itemtype": "method",
+            "name": "CircleFill",
+            "params": [
+                {
+                    "name": "x",
+                    "description": "中心のx座標",
+                    "type": "Number"
+                },
+                {
+                    "name": "y",
+                    "description": "中心のy座標",
+                    "type": "Number"
+                },
+                {
+                    "name": "r",
+                    "description": "半径",
+                    "type": "Number"
+                },
+                {
+                    "name": "stroke",
+                    "description": "円周を描くかどうか",
+                    "type": "Number"
+                }
+            ],
+            "example": [
+                "\n```\nHg.CircleFill(10, 10, 5); // (10, 10) を中心とした半径5の塗りつぶされた円を描画\nHg.CircleFill(10, 10, 5, 0); // strokeを指定しない or =0 なら円周は描画されない\nHg.CircleFill(10, 10, 5, 1); // 円周を描画する\n```"
+            ],
+            "class": "handyGraphic.Graphic",
+            "module": "handyGraphic",
+            "namespace": "handyGraphic"
+        },
+        {
+            "file": "handyGraphic.js",
+            "line": 294,
+            "description": "座標(x, y) を左下隅とする幅w，高さhの長方形を描画．\n左下隅の座標ははウィンドウの外部の点でも構いません．",
+            "itemtype": "method",
+            "name": "Box",
+            "params": [
+                {
+                    "name": "x",
+                    "description": "左下隅のx座標",
+                    "type": "Number"
+                },
+                {
+                    "name": "y",
+                    "description": "左下隅のy座標",
+                    "type": "Number"
+                },
+                {
+                    "name": "w",
+                    "description": "幅",
+                    "type": "Number"
+                },
+                {
+                    "name": "r",
+                    "description": "高さ",
+                    "type": "Number"
+                }
+            ],
+            "example": [
+                "\n```\nHg.Box(10, 10, 3, 5); // (10, 10) を左下隅とする幅3，高さ5の長方形を描画\n```"
+            ],
+            "class": "handyGraphic.Graphic",
+            "module": "handyGraphic",
+            "namespace": "handyGraphic"
+        },
+        {
+            "file": "handyGraphic.js",
+            "line": 311,
+            "description": "座標(x, y) を左下隅とする幅w，高さhの塗りつぶされた長方形を描画．\n左下隅の座標はウィンドウの外部の点でも構いません．\n\n引数 stroke が 0 の場合は周囲に長方形を描きません．\n0 以外の値(例えば 1)の場合，他の線図形と同じ太さ，同じ色の線で長方形を描きます．",
+            "itemtype": "method",
+            "name": "BoxFill",
+            "params": [
+                {
+                    "name": "x",
+                    "description": "左下隅のx座標",
+                    "type": "Number"
+                },
+                {
+                    "name": "y",
+                    "description": "左下隅のy座標",
+                    "type": "Number"
+                },
+                {
+                    "name": "w",
+                    "description": "幅",
+                    "type": "Number"
+                },
+                {
+                    "name": "r",
+                    "description": "高さ",
+                    "type": "Number"
+                },
+                {
+                    "name": "stroke",
+                    "description": "周囲を描くかどうか",
+                    "type": "Number"
+                }
+            ],
+            "example": [
+                "\n```\nHg.BoxFill(10, 10, 3, 5); // (10, 10) を左下隅とする幅3，高さ5の塗りつぶされた長方形を描画\nHg.BoxFill(10, 10, 3, 5, 0); // strokeを指定しない or =0 なら円周は描画されない\nHg.BoxFill(10, 10, 3, 5, 1); // 円周を描画する\n```"
+            ],
+            "class": "handyGraphic.Graphic",
+            "module": "handyGraphic",
+            "namespace": "handyGraphic"
+        },
+        {
+            "file": "handyGraphic.js",
+            "line": 334,
+            "description": "指定された座標群 x，y を結ぶような多角形を描画．\n最初の点と最後の点の間が結ばれます．",
+            "itemtype": "method",
+            "name": "Polygon",
+            "params": [
+                {
+                    "name": "n",
+                    "description": "頂点数",
+                    "type": "Number"
+                },
+                {
+                    "name": "x",
+                    "description": "x座標の配列",
+                    "type": "Array"
+                },
+                {
+                    "name": "y",
+                    "description": "y座標の配列",
+                    "type": "Array"
+                }
+            ],
+            "example": [
+                "\n```\nvar x = [x0, x1, x2, x3, x4];\nvar y = [y0, y1, y2, y3, y4];\n\nHg.Polygon(5, x, y);\n```"
+            ],
+            "class": "handyGraphic.Graphic",
+            "module": "handyGraphic",
+            "namespace": "handyGraphic"
+        },
+        {
+            "file": "handyGraphic.js",
+            "line": 353,
+            "description": "指定された座標群 x，y を結ぶような塗りつぶされた多角形を描画．\n最初の点と最後の点の間が結ばれます．\n\n引数 stroke が 0 の場合は周囲の線を描きません．",
+            "itemtype": "method",
+            "name": "PolygonFill",
+            "params": [
+                {
+                    "name": "n",
+                    "description": "頂点数",
+                    "type": "Number"
+                },
+                {
+                    "name": "x",
+                    "description": "x座標の配列",
+                    "type": "Array"
+                },
+                {
+                    "name": "y",
+                    "description": "y座標の配列",
+                    "type": "Array"
+                },
+                {
+                    "name": "stroke",
+                    "description": "周囲を描くかどうか",
+                    "type": "Number"
+                }
+            ],
+            "example": [
+                "\n```\nvar x = [x0, x1, x2, x3, x4];\nvar y = [y0, y1, y2, y3, y4];\n\nHg.PolygonFill(5, x, y); // 円周なし\nHg.PolygonFill(5, x, y, 0); // 円周なし\nHg.PolygonFill(5, x, y, 1); // 円周あり\n```"
+            ],
+            "class": "handyGraphic.Graphic",
+            "module": "handyGraphic",
+            "namespace": "handyGraphic"
+        },
+        {
+            "file": "handyGraphic.js",
+            "line": 377,
+            "description": "座標(x, y) を中心とした半径rの円について，開始角度 a0 と終了角度 a1 を指定して円弧を描画．\n円弧は始点角度から終了角度までを反時計回りに結びます．中心座標はウィンドウの外部でも良い．\n\n角度は， 0 ~ 360 で表される整数を使います．",
+            "itemtype": "method",
+            "name": "Arc",
+            "params": [
+                {
+                    "name": "x",
+                    "description": "円弧の中心のx座標",
+                    "type": "Number"
+                },
+                {
+                    "name": "y",
+                    "description": "円弧の中心のy座標",
+                    "type": "Number"
+                },
+                {
+                    "name": "r",
+                    "description": "円弧の半径",
+                    "type": "Number"
+                },
+                {
+                    "name": "a0",
+                    "description": "開始角度",
+                    "type": "Number"
+                },
+                {
+                    "name": "a1",
+                    "description": "終了角度",
+                    "type": "Number"
+                }
+            ],
+            "example": [
+                "\n```\nHg.Arc(10, 10, 5, 0, 135); \n```"
+            ],
+            "class": "handyGraphic.Graphic",
+            "module": "handyGraphic",
+            "namespace": "handyGraphic"
+        },
+        {
+            "file": "handyGraphic.js",
+            "line": 397,
+            "description": "座標(x, y) を中心とした半径rの円について，開始角度 a0 と終了角度 a1 を指定して扇型の孤を描画．\n扇型の弧は始点角度から終了角度までを反時計回りに結びます．中心座標はウィンドウの外部でも良い．\n\n角度は， 0 ~ 360 で表される整数を使います．",
+            "itemtype": "method",
+            "name": "Fan",
+            "params": [
+                {
+                    "name": "x",
+                    "description": "弧の中心のx座標",
+                    "type": "Number"
+                },
+                {
+                    "name": "y",
+                    "description": "弧の中心のy座標",
+                    "type": "Number"
+                },
+                {
+                    "name": "r",
+                    "description": "弧の半径",
+                    "type": "Number"
+                },
+                {
+                    "name": "a0",
+                    "description": "開始角度",
+                    "type": "Number"
+                },
+                {
+                    "name": "a1",
+                    "description": "終了角度",
+                    "type": "Number"
+                }
+            ],
+            "example": [
+                "\n```\nHg.Fan(10, 10, 5, 0, 135); \n```"
+            ],
+            "class": "handyGraphic.Graphic",
+            "module": "handyGraphic",
+            "namespace": "handyGraphic"
+        },
+        {
+            "file": "handyGraphic.js",
+            "line": 417,
+            "description": "座標(x, y) を中心とした半径rの円について，開始角度 a0 と終了角度 a1 を指定して塗りつぶされた扇型を描画．\n扇型の弧は始点角度から終了角度までを反時計回りに結びます．中心座標はウィンドウの外部でも良い．\n\n引数 stroke が 0 の場合は周囲の線を描きません．\n角度は， 0 ~ 360 で表される整数を使います．",
+            "itemtype": "method",
+            "name": "FanFill",
+            "params": [
+                {
+                    "name": "x",
+                    "description": "弧の中心のx座標",
+                    "type": "Number"
+                },
+                {
+                    "name": "y",
+                    "description": "弧の中心のy座標",
+                    "type": "Number"
+                },
+                {
+                    "name": "r",
+                    "description": "弧の半径",
+                    "type": "Number"
+                },
+                {
+                    "name": "a0",
+                    "description": "開始角度",
+                    "type": "Number"
+                },
+                {
+                    "name": "a1",
+                    "description": "終了角度",
+                    "type": "Number"
+                },
+                {
+                    "name": "stroke",
+                    "description": "周囲を描くかどうか",
+                    "type": "Number"
+                }
+            ],
+            "example": [
+                "\n```\nHg.FanFill(10, 10, 5, 0, 135); // 円周なし\nHg.FanFill(10, 10, 5, 0, 135, 0); // 円周なし\nHg.FanFill(10, 10, 5, 0, 135, 1); // 円周あり\n```"
+            ],
+            "class": "handyGraphic.Graphic",
+            "module": "handyGraphic",
+            "namespace": "handyGraphic"
+        },
+        {
+            "file": "handyGraphic.js",
+            "line": 441,
+            "description": "座標(x, y)を左下隅として，指定された文字列を描きます．\n左下隅の座標はウィンドウの外部の点でも構いません．",
+            "itemtype": "method",
+            "name": "Text",
+            "params": [
+                {
+                    "name": "x",
+                    "description": "x座標",
+                    "type": "Number"
+                },
+                {
+                    "name": "y",
+                    "description": "y座標",
+                    "type": "Number"
+                },
+                {
+                    "name": "表示する文字列",
+                    "description": "",
+                    "type": "String"
+                }
+            ],
+            "example": [
+                "\n```\nHg.Text(10, 10, \"Hello World\");\n```"
+            ],
+            "class": "handyGraphic.Graphic",
+            "module": "handyGraphic",
+            "namespace": "handyGraphic"
+        },
+        {
+            "file": "handyGraphic.js",
+            "line": 457,
+            "description": "文字列を描画する場合のフォントと大きさを指定する．\nいったん指定されると，別の指定があるまで同じ字体と大きさが使われる．",
+            "itemtype": "method",
+            "name": "SetFont",
+            "params": [
+                {
+                    "name": "x",
+                    "description": "x座標",
+                    "type": "Number"
+                },
+                {
+                    "name": "y",
+                    "description": "y座標",
+                    "type": "Number"
+                },
+                {
+                    "name": "表示する文字列",
+                    "description": "",
+                    "type": "String"
+                }
+            ],
+            "example": [
+                "\n```\nHg.SetFont(\"sans-serif\", 12);\n```"
+            ],
+            "class": "handyGraphic.Graphic",
+            "module": "handyGraphic",
+            "namespace": "handyGraphic"
+        },
+        {
+            "file": "handyGraphic.js",
+            "line": 473,
+            "description": "ウィンドウ内に書かれたすべての図形や文字を消去する．",
+            "itemtype": "method",
+            "name": "Clear",
+            "example": [
+                "\n```\nHg.Clear(); // ウィンドウの初期化\n```"
+            ],
+            "class": "handyGraphic.Graphic",
+            "module": "handyGraphic",
+            "namespace": "handyGraphic"
+        },
+        {
+            "file": "handyGraphic.js",
+            "line": 485,
+            "description": "描画するウィンドウを作成する．Openメソッドと違い，WOpenメソッドはカレントウィンドウが変更されません．",
+            "itemtype": "method",
+            "name": "WOpen",
+            "params": [
+                {
+                    "name": "w",
+                    "description": "ウィンドウの幅",
+                    "type": "Number"
+                },
+                {
+                    "name": "h",
+                    "description": "ウィンドウの高さ",
+                    "type": "Number"
+                },
+                {
+                    "name": "canvasId",
+                    "description": "canvasのId",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "ウィンドウオブジェクト",
+                "type": "Window"
+            },
+            "example": [
+                "\n```\nvar win1 = Hg.Open(400, 400); // 400x400のウィンドウを作成\nvar win2 = Hg.WOpen(300, 300, \"canvas2\"); // カレントウィンドウが変更されない\n```"
+            ],
+            "class": "handyGraphic.Graphic",
+            "module": "handyGraphic",
+            "namespace": "handyGraphic"
+        },
+        {
+            "file": "handyGraphic.js",
+            "line": 503,
+            "description": "指定したウィンドウの描画する線の太さを変更する\n指定できるのは0より大きい数値のみで，それ以外の値を指定しても無視されます．",
+            "itemtype": "method",
+            "name": "WSetWidth",
+            "params": [
+                {
+                    "name": "win",
+                    "description": "指定するウィンドウ",
+                    "type": "Window"
+                },
+                {
+                    "name": "t",
+                    "description": "線の太さを示す数値",
+                    "type": "Number"
+                }
+            ],
+            "example": [
+                "\n```\nHg.WSetWidth(win1, 5); // win1の線の太さを5に指定\nHg.WSetWidth(win2, 3); // win2の線の太さを3に指定\n```"
+            ],
+            "class": "handyGraphic.Graphic",
+            "module": "handyGraphic",
+            "namespace": "handyGraphic"
+        },
+        {
+            "file": "handyGraphic.js",
+            "line": 519,
+            "description": "指定したウィンドウの描画する線の色を変更する\nいったん色を指定すると，別の色を指定するまで同じ色が使われます．一度も指定しない場合は黒で描画する．\ncolorに指定する色はCSSで指定するフォーマットに対応",
+            "itemtype": "method",
+            "name": "WSetColor",
+            "params": [
+                {
+                    "name": "win",
+                    "description": "指定するウィンドウ",
+                    "type": "Window"
+                },
+                {
+                    "name": "color",
+                    "description": "線の色を表す文字列",
+                    "type": "String"
+                }
+            ],
+            "example": [
+                "\n```\nHg.SetColor(win1, \"red\"); \nHg.SetColor(win2, Hg.RGB(192, 80, 77);\n```"
+            ],
+            "class": "handyGraphic.Graphic",
+            "module": "handyGraphic",
+            "namespace": "handyGraphic"
+        },
+        {
+            "file": "handyGraphic.js",
+            "line": 536,
+            "description": "指定したウィンドウの図形の塗りつぶす色を変更する\ncolorに指定する色はCSSで指定するフォーマットに対応\n別の色を指定するまで同じ色が使われます．一度も指定しない場合は白で塗りつぶされます．",
+            "itemtype": "method",
+            "name": "WSetFillColor",
+            "params": [
+                {
+                    "name": "win",
+                    "description": "指定するウィンドウ",
+                    "type": "Window"
+                },
+                {
+                    "name": "color",
+                    "description": "塗りつぶす色を表す文字列",
+                    "type": "String"
+                }
+            ],
+            "example": [
+                "\n```\nHg.SetFillColor(win1, \"red\");\nHg.SetFillColor(win2, Hg.RGB(192, 80, 77);\n```"
+            ],
+            "class": "handyGraphic.Graphic",
+            "module": "handyGraphic",
+            "namespace": "handyGraphic"
+        },
+        {
+            "file": "handyGraphic.js",
+            "line": 553,
+            "description": "指定したウィンドウに (x0, y0) と (x1, y1) を結ぶ線分を描画．\nこれらの点はウィンドウの外部の点でも構いません．",
+            "itemtype": "method",
+            "name": "WLine",
+            "params": [
+                {
+                    "name": "win",
+                    "description": "指定するウィンドウ",
+                    "type": "Window"
+                },
+                {
+                    "name": "x0",
+                    "description": "始点のx座標",
+                    "type": "Number"
+                },
+                {
+                    "name": "y0",
+                    "description": "始点のy座標",
+                    "type": "Number"
+                },
+                {
+                    "name": "x1",
+                    "description": "終点のx座標",
+                    "type": "Number"
+                },
+                {
+                    "name": "y0",
+                    "description": "終点のy座標",
+                    "type": "Number"
+                }
+            ],
+            "example": [
+                "\n```\nHg.WLine(win1, 100, 100, 300, 300);\nHg.WLine(win2, 100, 100, 300, 300);\n```"
+            ],
+            "class": "handyGraphic.Graphic",
+            "module": "handyGraphic",
+            "namespace": "handyGraphic"
+        },
+        {
+            "file": "handyGraphic.js",
+            "line": 578,
+            "description": "指定したウィンドウに 座標(x, y) を中心とした半径rの円を描画．\n中心点はウィンドウの外部の点でも構いません．",
+            "itemtype": "method",
+            "name": "WCircle",
+            "params": [
+                {
+                    "name": "win",
+                    "description": "指定するウィンドウ",
+                    "type": "Window"
+                },
+                {
+                    "name": "x",
+                    "description": "中心のx座標",
+                    "type": "Number"
+                },
+                {
+                    "name": "y",
+                    "description": "中心のy座標",
+                    "type": "Number"
+                },
+                {
+                    "name": "r",
+                    "description": "半径",
+                    "type": "Number"
+                }
+            ],
+            "example": [
+                "\n```\nHg.WCircle(win1, 10, 10, 5);\nHg.WCircle(win2, 10, 10, 5);\n```"
+            ],
+            "class": "handyGraphic.Graphic",
+            "module": "handyGraphic",
+            "namespace": "handyGraphic"
+        },
+        {
+            "file": "handyGraphic.js",
+            "line": 600,
+            "description": "指定したウィンドウに 座標(x, y) を中心とした半径rの塗りつぶされた円を描画．\n中心点はウィンドウの外部の点でも構いません．\n\n引数 stroke が 0 の場合は円周を描きません．\n0 以外の値(例えば 1)の場合，他の線と同じ太さ，同じ色の線で円周を描きます．",
+            "itemtype": "method",
+            "name": "WCircleFill",
+            "params": [
+                {
+                    "name": "win",
+                    "description": "指定するウィンドウ",
+                    "type": "Window"
+                },
+                {
+                    "name": "x",
+                    "description": "中心のx座標",
+                    "type": "Number"
+                },
+                {
+                    "name": "y",
+                    "description": "中心のy座標",
+                    "type": "Number"
+                },
+                {
+                    "name": "r",
+                    "description": "半径",
+                    "type": "Number"
+                },
+                {
+                    "name": "stroke",
+                    "description": "円周を描くかどうか",
+                    "type": "Number"
+                }
+            ],
+            "example": [
+                "\n```\nHg.CircleFill(win1, 10, 10, 5);\nHg.CircleFill(win2, 10, 10, 5, 0);\nHg.CircleFill(win2, 10, 10, 5, 1);\n```"
+            ],
+            "class": "handyGraphic.Graphic",
+            "module": "handyGraphic",
+            "namespace": "handyGraphic"
+        },
+        {
+            "file": "handyGraphic.js",
+            "line": 632,
+            "description": "指定したウィンドウに 座標(x, y) を左下隅とする幅w，高さhの長方形を描画．\n左下隅の座標ははウィンドウの外部の点でも構いません．",
+            "itemtype": "method",
+            "name": "WBox",
+            "params": [
+                {
+                    "name": "win",
+                    "description": "指定するウィンドウ",
+                    "type": "Window"
+                },
+                {
+                    "name": "x",
+                    "description": "左下隅のx座標",
+                    "type": "Number"
+                },
+                {
+                    "name": "y",
+                    "description": "左下隅のy座標",
+                    "type": "Number"
+                },
+                {
+                    "name": "w",
+                    "description": "幅",
+                    "type": "Number"
+                },
+                {
+                    "name": "r",
+                    "description": "高さ",
+                    "type": "Number"
+                }
+            ],
+            "example": [
+                "\n```\nHg.WBox(win1, 10, 10, 3, 5);\nHg.WBox(win2, 10, 10, 3, 5);\n```"
+            ],
+            "class": "handyGraphic.Graphic",
+            "module": "handyGraphic",
+            "namespace": "handyGraphic"
+        },
+        {
+            "file": "handyGraphic.js",
+            "line": 654,
+            "description": "指定したウィンドウに 座標(x, y) を左下隅とする幅w，高さhの塗りつぶされた長方形を描画．\n左下隅の座標はウィンドウの外部の点でも構いません．\n\n引数 stroke が 0 の場合は周囲に長方形を描きません．\n0 以外の値(例えば 1)の場合，他の線図形と同じ太さ，同じ色の線で長方形を描きます．",
+            "itemtype": "method",
+            "name": "WBoxFill",
+            "params": [
+                {
+                    "name": "win",
+                    "description": "指定するウィンドウ",
+                    "type": "Window"
+                },
+                {
+                    "name": "x",
+                    "description": "左下隅のx座標",
+                    "type": "Number"
+                },
+                {
+                    "name": "y",
+                    "description": "左下隅のy座標",
+                    "type": "Number"
+                },
+                {
+                    "name": "w",
+                    "description": "幅",
+                    "type": "Number"
+                },
+                {
+                    "name": "r",
+                    "description": "高さ",
+                    "type": "Number"
+                },
+                {
+                    "name": "stroke",
+                    "description": "周囲を描くかどうか",
+                    "type": "Number"
+                }
+            ],
+            "example": [
+                "\n```\nHg.WBoxFill(win1, 10, 10, 3, 5);\nHg.WBoxFill(win2, 10, 10, 3, 5, 0);\nHg.WBoxFill(win2, 10, 10, 3, 5, 1);\n```"
+            ],
+            "class": "handyGraphic.Graphic",
+            "module": "handyGraphic",
+            "namespace": "handyGraphic"
+        },
+        {
+            "file": "handyGraphic.js",
+            "line": 685,
+            "description": "指定したウィンドウに 指定された座標群 x，y を結ぶような多角形を描画．\n最初の点と最後の点の間が結ばれます．",
+            "itemtype": "method",
+            "name": "WPolygon",
+            "params": [
+                {
+                    "name": "win",
+                    "description": "指定するウィンドウ",
+                    "type": "Window"
+                },
+                {
+                    "name": "n",
+                    "description": "頂点数",
+                    "type": "Number"
+                },
+                {
+                    "name": "x",
+                    "description": "x座標の配列",
+                    "type": "Array"
+                },
+                {
+                    "name": "y",
+                    "description": "y座標の配列",
+                    "type": "Array"
+                }
+            ],
+            "example": [
+                "\n```\nvar x = [x0, x1, x2, x3, x4];\nvar y = [y0, y1, y2, y3, y4];\n\nHg.WPolygon(win1, 5, x, y);\nHg.WPolygon(win2, 5, x, y);\n```"
+            ],
+            "class": "handyGraphic.Graphic",
+            "module": "handyGraphic",
+            "namespace": "handyGraphic"
+        },
+        {
+            "file": "handyGraphic.js",
+            "line": 713,
+            "description": "指定したウィンドウに 指定された座標群 x，y を結ぶような塗りつぶされた多角形を描画．\n最初の点と最後の点の間が結ばれます．\n\n引数 stroke が 0 の場合は周囲の線を描きません．",
+            "itemtype": "method",
+            "name": "WPolygonFill",
+            "params": [
+                {
+                    "name": "win",
+                    "description": "指定するウィンドウ",
+                    "type": "Window"
+                },
+                {
+                    "name": "n",
+                    "description": "頂点数",
+                    "type": "Number"
+                },
+                {
+                    "name": "x",
+                    "description": "x座標の配列",
+                    "type": "Array"
+                },
+                {
+                    "name": "y",
+                    "description": "y座標の配列",
+                    "type": "Array"
+                },
+                {
+                    "name": "stroke",
+                    "description": "周囲を描くかどうか",
+                    "type": "Number"
+                }
+            ],
+            "example": [
+                "\n```\nvar x = [x0, x1, x2, x3, x4];\nvar y = [y0, y1, y2, y3, y4];\n\nHg.WPolygonFill(win1, 5, x, y);\nHg.WPolygonFill(win2, 5, x, y, 0);\nHg.WPolygonFill(win2, 5, x, y, 1);\n```"
+            ],
+            "class": "handyGraphic.Graphic",
+            "module": "handyGraphic",
+            "namespace": "handyGraphic"
+        },
+        {
+            "file": "handyGraphic.js",
+            "line": 755,
+            "description": "指定したウィンドウに 座標(x, y) を中心とした半径rの円について，開始角度 a0 と終了角度 a1 を指定して円弧を描画．\n円弧は始点角度から終了角度までを反時計回りに結びます．中心座標はウィンドウの外部でも良い．\n\n角度は， 0 ~ 360 で表される整数を使います．",
+            "itemtype": "method",
+            "name": "WArc",
+            "params": [
+                {
+                    "name": "win",
+                    "description": "指定するウィンドウ",
+                    "type": "Window"
+                },
+                {
+                    "name": "x",
+                    "description": "円弧の中心のx座標",
+                    "type": "Number"
+                },
+                {
+                    "name": "y",
+                    "description": "円弧の中心のy座標",
+                    "type": "Number"
+                },
+                {
+                    "name": "r",
+                    "description": "円弧の半径",
+                    "type": "Number"
+                },
+                {
+                    "name": "a0",
+                    "description": "開始角度",
+                    "type": "Number"
+                },
+                {
+                    "name": "a1",
+                    "description": "終了角度",
+                    "type": "Number"
+                }
+            ],
+            "example": [
+                "\n```\nHg.WArc(win1, 10, 10, 5, 0, 135); \nHg.WArc(win2, 10, 10, 5, 0, 135); \n```"
+            ],
+            "class": "handyGraphic.Graphic",
+            "module": "handyGraphic",
+            "namespace": "handyGraphic"
+        },
+        {
+            "file": "handyGraphic.js",
+            "line": 781,
+            "description": "指定したウィンドウに 座標(x, y) を中心とした半径rの円について，開始角度 a0 と終了角度 a1 を指定して扇型の孤を描画．\n扇型の弧は始点角度から終了角度までを反時計回りに結びます．中心座標はウィンドウの外部でも良い．\n\n角度は， 0 ~ 360 で表される整数を使います．",
+            "itemtype": "method",
+            "name": "WFan",
+            "params": [
+                {
+                    "name": "win",
+                    "description": "指定するウィンドウ",
+                    "type": "Window"
+                },
+                {
+                    "name": "x",
+                    "description": "弧の中心のx座標",
+                    "type": "Number"
+                },
+                {
+                    "name": "y",
+                    "description": "弧の中心のy座標",
+                    "type": "Number"
+                },
+                {
+                    "name": "r",
+                    "description": "弧の半径",
+                    "type": "Number"
+                },
+                {
+                    "name": "a0",
+                    "description": "開始角度",
+                    "type": "Number"
+                },
+                {
+                    "name": "a1",
+                    "description": "終了角度",
+                    "type": "Number"
+                }
+            ],
+            "example": [
+                "\n```\nHg.WFan(win1, 10, 10, 5, 0, 135); \nHg.WFan(win2, 10, 10, 5, 0, 135); \n```"
+            ],
+            "class": "handyGraphic.Graphic",
+            "module": "handyGraphic",
+            "namespace": "handyGraphic"
+        },
+        {
+            "file": "handyGraphic.js",
+            "line": 809,
+            "description": "指定したウィンドウに 座標(x, y) を中心とした半径rの円について，開始角度 a0 と終了角度 a1 を指定して塗りつぶされた扇型を描画．\n扇型の弧は始点角度から終了角度までを反時計回りに結びます．中心座標はウィンドウの外部でも良い．\n\n引数 stroke が 0 の場合は周囲の線を描きません．\n角度は， 0 ~ 360 で表される整数を使います．",
+            "itemtype": "method",
+            "name": "WFanFill",
+            "params": [
+                {
+                    "name": "win",
+                    "description": "指定するウィンドウ",
+                    "type": "Window"
+                },
+                {
+                    "name": "x",
+                    "description": "弧の中心のx座標",
+                    "type": "Number"
+                },
+                {
+                    "name": "y",
+                    "description": "弧の中心のy座標",
+                    "type": "Number"
+                },
+                {
+                    "name": "r",
+                    "description": "弧の半径",
+                    "type": "Number"
+                },
+                {
+                    "name": "a0",
+                    "description": "開始角度",
+                    "type": "Number"
+                },
+                {
+                    "name": "a1",
+                    "description": "終了角度",
+                    "type": "Number"
+                },
+                {
+                    "name": "stroke",
+                    "description": "周囲を描くかどうか",
+                    "type": "Number"
+                }
+            ],
+            "example": [
+                "\n```\nHg.WFanFill(win1, 10, 10, 5, 0, 135);\nHg.WFanFill(win2, 10, 10, 5, 0, 135, 0);\nHg.WFanFill(win2, 10, 10, 5, 0, 135, 1);\n```"
+            ],
+            "class": "handyGraphic.Graphic",
+            "module": "handyGraphic",
+            "namespace": "handyGraphic"
+        },
+        {
+            "file": "handyGraphic.js",
+            "line": 848,
+            "description": "指定するウィンドウに 座標(x, y)を左下隅として，指定された文字列を描きます．\n左下隅の座標はウィンドウの外部の点でも構いません．",
+            "itemtype": "method",
+            "name": "WText",
+            "params": [
+                {
+                    "name": "win",
+                    "description": "指定するウィンドウ",
+                    "type": "Window"
+                },
+                {
+                    "name": "x",
+                    "description": "x座標",
+                    "type": "Number"
+                },
+                {
+                    "name": "y",
+                    "description": "y座標",
+                    "type": "Number"
+                },
+                {
+                    "name": "表示する文字列",
+                    "description": "",
+                    "type": "String"
+                }
+            ],
+            "example": [
+                "\n```\nHg.WText(win1, 10, 10, \"Hello World\");\nHg.WText(win2, 10, 10, \"Hello World\");\n```"
+            ],
+            "class": "handyGraphic.Graphic",
+            "module": "handyGraphic",
+            "namespace": "handyGraphic"
+        },
+        {
+            "file": "handyGraphic.js",
+            "line": 868,
+            "description": "指定するウィンドウに 文字列を描画する場合のフォントと大きさを指定する．\nいったん指定されると，別の指定があるまで同じ字体と大きさが使われる．",
+            "itemtype": "method",
+            "name": "WSetText",
+            "params": [
+                {
+                    "name": "win",
+                    "description": "指定するウィンドウ",
+                    "type": "Window"
+                },
+                {
+                    "name": "x",
+                    "description": "x座標",
+                    "type": "Number"
+                },
+                {
+                    "name": "y",
+                    "description": "y座標",
+                    "type": "Number"
+                },
+                {
+                    "name": "表示する文字列",
+                    "description": "",
+                    "type": "String"
+                }
+            ],
+            "exapmle": "```\nHg.WSetFont(win1, \"sans-serif\", 12);\nHg.WSetFont(win2, \"sans-serif\", 16);\n```",
+            "class": "handyGraphic.Graphic",
+            "module": "handyGraphic",
+            "namespace": "handyGraphic"
+        },
+        {
+            "file": "handyGraphic.js",
+            "line": 888,
+            "description": "指定したウィンドウ内に書かれたすべての図形や文字を消去する．",
+            "itemtype": "method",
+            "name": "WClear",
+            "params": [
+                {
+                    "name": "win",
+                    "description": "指定するウィンドウ",
+                    "type": "Window"
+                }
+            ],
+            "example": [
+                "\n```\nHg.WClear(win1); // win1ウィンドウの初期化\nHg.WClear(win2); // win2ウィンドウの初期化\n```"
+            ],
+            "class": "handyGraphic.Graphic",
+            "module": "handyGraphic",
+            "namespace": "handyGraphic"
+        },
+        {
+            "file": "handyGraphic.js",
+            "line": 904,
+            "description": "0 ~ 255 の値で指定された数値を元に，白から黒までの範囲で色を作成する．\n0が黒，255が白です．引数の数値は0 <= g <= 255 の整数で指定する．",
+            "itemtype": "method",
+            "name": "Gray",
+            "params": [
+                {
+                    "name": "g",
+                    "description": "グレーの濃度を示す整数",
+                    "type": "Number"
+                }
+            ],
+            "return": {
+                "description": "CSSで指定するフォーマット形式の文字列",
+                "type": "String"
+            },
+            "example": [
+                "\n```\nString color = Hg.Gray(0); // 黒色\nHgSetColor(color); // 黒色に変更\n\nHgSetColor(Hg.Gray(255)); // 白色に変更\n```"
+            ],
+            "class": "handyGraphic.Graphic",
+            "module": "handyGraphic",
+            "namespace": "handyGraphic"
+        },
+        {
+            "file": "handyGraphic.js",
+            "line": 923,
+            "description": "白黒の半透明色を作成する．\n0が黒，255が白です．引数の数値は0 <= g <= 255 の整数で指定する．\nアルファ値は0.0 <= a <= 1.0 の範囲内の値で指定する．",
+            "itemtype": "method",
+            "name": "GrayA",
+            "params": [
+                {
+                    "name": "g",
+                    "description": "グレーの濃度を示す整数",
+                    "type": "Number"
+                },
+                {
+                    "name": "a",
+                    "description": "アルファ値",
+                    "type": "Number"
+                }
+            ],
+            "return": {
+                "description": "CSSで指定するフォーマット形式の文字列",
+                "type": "String"
+            },
+            "example": [
+                "\n```\nString color = Hg.GrayA(0, 0.5); // 半透明の黒色\nHgSetColor(color);\n\nHgSetColor(Hg.GrayA(255, 0.5)); // 半透明の白色に変更\n```"
+            ],
+            "class": "handyGraphic.Graphic",
+            "module": "handyGraphic",
+            "namespace": "handyGraphic"
+        },
+        {
+            "file": "handyGraphic.js",
+            "line": 945,
+            "description": "赤，緑，青の三原色の数値を元に色を作成する．\n引数の数値は 0 <= r, g, b <= 255 の整数で指定する",
+            "itemtype": "method",
+            "name": "RGB",
+            "params": [
+                {
+                    "name": "r",
+                    "description": "赤の濃度を示す整数",
+                    "type": "Number"
+                },
+                {
+                    "name": "g",
+                    "description": "緑の濃度を示す整数",
+                    "type": "Number"
+                },
+                {
+                    "name": "b",
+                    "description": "青の濃度を示す整数",
+                    "type": "Number"
+                }
+            ],
+            "return": {
+                "description": "CSSで指定するフォーマット形式の文字列",
+                "type": "String"
+            },
+            "example": [
+                "\n```\nString color = Hg.RGB(255, 255, 0); // 黄色\nHgSetColor(color);\n\nHgSetColor(Hg.RGB(0, 255, 255)); // シアンに変更\n```"
+            ],
+            "class": "handyGraphic.Graphic",
+            "module": "handyGraphic",
+            "namespace": "handyGraphic"
+        },
+        {
+            "file": "handyGraphic.js",
+            "line": 968,
+            "description": "透明度を指定して，赤，緑，青の三原色の数値を元にを作成する．\n引数の数値は 0 <= r, g, b <= 255 の整数で指定する．\nアルファ値は 0.0 <= a <= 1.0 の範囲内の値で指定する．",
+            "itemtype": "method",
+            "name": "RGBA",
+            "params": [
+                {
+                    "name": "r",
+                    "description": "赤の濃度を示す整数",
+                    "type": "Number"
+                },
+                {
+                    "name": "g",
+                    "description": "緑の濃度を示す整数",
+                    "type": "Number"
+                },
+                {
+                    "name": "b",
+                    "description": "青の濃度を示す整数",
+                    "type": "Number"
+                },
+                {
+                    "name": "a",
+                    "description": "アルファ値",
+                    "type": "Number"
+                }
+            ],
+            "return": {
+                "description": "CSSで指定するフォーマット形式の文字列",
+                "type": "String"
+            },
+            "example": [
+                "\n```\nString color = Hg.RGB(255, 255, 0, 0.5); // 半透明な黄色\nHgSetColor(color);\n\nHgSetColor(Hg.RGB(0, 255, 255, 0.5)); // 半透明なシアンに変更\n```"
+            ],
+            "class": "handyGraphic.Graphic",
+            "module": "handyGraphic",
+            "namespace": "handyGraphic"
+        },
+        {
+            "file": "handyGraphic.js",
+            "line": 1088,
+            "description": "シーンの起動時に実行されるメソッド．\n初期化処理など，起動時に１度だけ実行する必要がある処理を記述する",
+            "itemtype": "method",
+            "name": "awake",
+            "example": [
+                "\n```\nvar scene1 = new Scene({t : 0});\nscene1.awake = function () {\n    // 起動時の処理を記述する\n    this.t = 0; // シーン内の変数の初期化など\n}\n```"
+            ],
+            "class": "handyGraphic.Scene",
+            "module": "handyGraphic",
+            "namespace": "handyGraphic"
+        },
+        {
+            "file": "handyGraphic.js",
+            "line": 1105,
+            "description": "ワンフレーム毎に実行されるメソッド．\n座標の更新，条件判定，シーンの移動判定などを記述する",
+            "itemtype": "method",
+            "name": "update",
+            "example": [
+                "\n```\nvar scene1 = new Scene({t : 0});\nscene1.update = function () {\n    // 変数などの更新処理を記述する\n    this.t += 1; // 更新処理\n}\n```"
+            ],
+            "class": "handyGraphic.Scene",
+            "module": "handyGraphic",
+            "namespace": "handyGraphic"
+        },
+        {
+            "file": "handyGraphic.js",
+            "line": 1122,
+            "description": "描画処理を記述するメソッド．\n現在のシーンとして表示される情報を記述する",
+            "itemtype": "method",
+            "name": "draw",
+            "example": [
+                "\n```\nvar scene1 = new Scene();\nscene1.draw = function () {\n    // 描画処理を記述する\n    Hg.Clear();\n    Hg.Box(10, 10, 5, 5); \n}\n```"
+            ],
+            "class": "handyGraphic.Scene",
+            "module": "handyGraphic",
+            "namespace": "handyGraphic"
+        },
+        {
+            "file": "handyGraphic.js",
+            "line": 1146,
+            "description": "シーンの起動を行うメソッド．\nこのメソッドを実行することでシーンが開始される．",
+            "itemtype": "method",
+            "name": "start",
+            "example": [
+                "\n```\nvar scene1 = new Scene();\n// シーンの設定を記述する\nscene1.start(); // シーンの起動\n```"
+            ],
+            "class": "handyGraphic.Scene",
+            "module": "handyGraphic",
+            "namespace": "handyGraphic"
+        },
+        {
+            "file": "handyGraphic.js",
+            "line": 1163,
+            "description": "シーンを終了するメソッド．\nこのメソッドを実行することでシーンが終了する．",
+            "itemtype": "method",
+            "name": "exit",
+            "example": [
+                "\n```\nscene1.exit(); // シーンの終了\n```"
+            ],
+            "class": "handyGraphic.Scene",
+            "module": "handyGraphic",
+            "namespace": "handyGraphic"
+        },
+        {
+            "file": "handyGraphic.js",
+            "line": 1176,
+            "description": "シーンを遷移するメソッド．\n現在のシーンを終了し，引数で与えられたシーンを開始する．",
+            "itemtype": "method",
+            "name": "nextScene",
+            "params": [
+                {
+                    "name": "_nextScene",
+                    "description": "遷移先シーン"
+                }
+            ],
+            "example": [
+                "\n```\nvar scene1 = new Scene(); // 最初のシーン\nvar scene2 = new Scene(); // 遷移先のシーン\nscene1.update = function () {\n    if (シーンの遷移条件) {\n       this.nextScene(scene2); // シーン遷移\n    }\n};\nscene1.start(); // シーンの起動\n```"
+            ],
+            "class": "handyGraphic.Scene",
+            "module": "handyGraphic",
+            "namespace": "handyGraphic"
+        },
+        {
+            "file": "handyGraphic.js",
+            "line": 1257,
+            "description": "スプライトの名前",
+            "itemtype": "property",
+            "name": "name",
+            "type": "{String}",
+            "class": "handyGraphic.Sprite",
+            "module": "handyGraphic",
+            "namespace": "handyGraphic"
+        },
+        {
+            "file": "handyGraphic.js",
+            "line": 1264,
+            "description": "スプライトをペイントするオブジェクト",
+            "itemtype": "property",
+            "name": "painter",
+            "type": "{Painter}",
+            "class": "handyGraphic.Sprite",
+            "module": "handyGraphic",
+            "namespace": "handyGraphic"
+        },
+        {
+            "file": "handyGraphic.js",
+            "line": 1271,
+            "description": "スプライトの振る舞いの配列",
+            "itemtype": "property",
+            "name": "behaviors",
+            "type": "{Array}",
+            "class": "handyGraphic.Sprite",
+            "module": "handyGraphic",
+            "namespace": "handyGraphic"
+        },
+        {
+            "file": "handyGraphic.js",
+            "line": 1278,
+            "description": "スプライトの左下隅のx座標",
+            "itemtype": "property",
+            "name": "x",
+            "type": "{Number}",
+            "class": "handyGraphic.Sprite",
+            "module": "handyGraphic",
+            "namespace": "handyGraphic"
+        },
+        {
+            "file": "handyGraphic.js",
+            "line": 1285,
+            "description": "スプライトの左下隅のy座標",
+            "itemtype": "property",
+            "name": "y",
+            "type": "{Number}",
+            "class": "handyGraphic.Sprite",
+            "module": "handyGraphic",
+            "namespace": "handyGraphic"
+        },
+        {
+            "file": "handyGraphic.js",
+            "line": 1292,
+            "description": "スプライトの幅",
+            "itemtype": "property",
+            "name": "width",
+            "type": "{Number}",
+            "class": "handyGraphic.Sprite",
+            "module": "handyGraphic",
+            "namespace": "handyGraphic"
+        },
+        {
+            "file": "handyGraphic.js",
+            "line": 1299,
+            "description": "スプライトの高さ",
+            "itemtype": "property",
+            "name": "height",
+            "type": "{Number}",
+            "class": "handyGraphic.Sprite",
+            "module": "handyGraphic",
+            "namespace": "handyGraphic"
+        },
+        {
+            "file": "handyGraphic.js",
+            "line": 1306,
+            "description": "スプライトのx方向の速度",
+            "itemtype": "property",
+            "name": "velocityX",
+            "type": "{Number}",
+            "class": "handyGraphic.Sprite",
+            "module": "handyGraphic",
+            "namespace": "handyGraphic"
+        },
+        {
+            "file": "handyGraphic.js",
+            "line": 1313,
+            "description": "スプライトのy方向の速度",
+            "itemtype": "property",
+            "name": "velocityY",
+            "type": "{Number}",
+            "class": "handyGraphic.Sprite",
+            "module": "handyGraphic",
+            "namespace": "handyGraphic"
+        },
+        {
+            "file": "handyGraphic.js",
+            "line": 1320,
+            "description": "スプライトが可視であるか示すブール値",
+            "itemtype": "property",
+            "name": "visible",
+            "type": "{Boolean}",
+            "class": "handyGraphic.Sprite",
+            "module": "handyGraphic",
+            "namespace": "handyGraphic"
+        },
+        {
+            "file": "handyGraphic.js",
+            "line": 1327,
+            "description": "スプライトがアニメーション中であるか示すブール値",
+            "itemtype": "property",
+            "name": "animating",
+            "type": "{Boolean}",
+            "class": "handyGraphic.Sprite",
+            "module": "handyGraphic",
+            "namespace": "handyGraphic"
+        },
+        {
+            "file": "handyGraphic.js",
+            "line": 1334,
+            "description": "スプライトが保持するペインターを用いてペイントする．\nイメージペインターを実装することで，スプライトは画像を扱うことも可能です．\n\nペインターはvoid paint(sprite, win) というメソッドを必ず実装する必要があります．\npaintメソッドを備えていれば，ペインターの実装は開発者の自由にすることができます．\nペインターは基本的に，実行時にスプライトに割り当てることが出来る交換可能なペイントアルゴリズムです．\nこの仕組みはペインターがStrategyデザインパターンの一例だということを意味しています．",
+            "itemtype": "method",
+            "name": "paint",
+            "params": [
+                {
+                    "name": "win",
+                    "description": "スプライトを描画するウィンドウ"
+                }
+            ],
+            "example": [
+                "\n```\n// ペインターの一例\nvar ballPainter = {\n    paint: function (sprite, win) {\n        Hg.Clear();\n        Hg.CircleFill(sprite.x, sprite.y, 20);\n    }\n};\nvar ball = new Sprite(\"ball\", ballPainter);\nball.paint(win); // スプライトを描画する\n```"
+            ],
+            "class": "handyGraphic.Sprite",
+            "module": "handyGraphic",
+            "namespace": "handyGraphic"
+        },
+        {
+            "file": "handyGraphic.js",
+            "line": 1363,
+            "description": "スプライトのビヘイビアを追加された順番で実行する．\n\nビヘイビアはvoid execute(sprite, win, time) というメソッドを必ず実装する必要があります．\nexecuteメセッドを備えていれば，ビヘイビアの実装は開発者の自由にすることができます．\nビヘイビアはスプライトによって実行され，実行されることでスプライトに対する振る舞いを実現します．\nまた，ビヘイビアは配列で保持しているため，いくつでも割り当てることができ，そしてビヘイビアを組み合わせることもできます．\nこの仕組みはビヘイビアがCommandデザインパターンの一例だということを意味しています．",
+            "itemtype": "method",
+            "name": "update",
+            "params": [
+                {
+                    "name": "win",
+                    "description": "スプライトを描画するウィンドウ"
+                },
+                {
+                    "name": "time",
+                    "description": "実行感覚"
+                }
+            ],
+            "example": [
+                "\n```\n// ビヘイビアの一例\nvar isFall = true,\nvar ballToFall = {\n    execute: function (sprite, win, time) {\n        if (isFall) { sprite.y -= 1; } \n \n        if (sprite.y <= 20) {\n            isFall = false; \n        }\n    }\n};\nvar ball = new Sprite(\"ball\", ballPainter, [ ballToFall ]);\nball.update(win, time); // 落下の振る舞いを実行する\n```"
+            ],
+            "class": "handyGraphic.Sprite",
+            "module": "handyGraphic",
+            "namespace": "handyGraphic"
+        }
+    ],
+    "warnings": [
+        {
+            "message": "unknown tag: exapmle",
+            "line": " handyGraphic.js:868"
+        },
+        {
+            "message": "Missing item type\nmain.js v0.0.1\nCopyright (c) 2016 kengo92i",
+            "line": " archery/main.js:1"
+        },
+        {
+            "message": "Missing item type\nmain.js v0.0.1\nCopyright (c) 2016 kengo92i",
+            "line": " sprite/main.js:1"
+        },
+        {
+            "message": "Missing item type\nhandyGraphic.js v0.0.1\nCopyright (c) 2016 kengo92i",
+            "line": " handyGraphic.js:1"
+        }
+    ]
+}

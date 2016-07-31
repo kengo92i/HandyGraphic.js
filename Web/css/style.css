@@ -1,0 +1,194 @@
+body {
+    background-image: url('images/bg.png');
+    background-size: cover;
+}
+
+h1, h2, h3 {
+    margin-top: 10px;
+}
+
+.dotted-border-heading {
+    border-bottom:2px dotted #363947;
+    padding: 5px 6px;
+}
+
+/* common css */
+footer.bd-footer {
+    text-align: center;
+    padding: 20px 30px;
+}
+
+/* Introduction page */
+#introduction-wrapper {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    margin: 0 1rem;
+    background-color: white;
+}
+#introduction {}
+
+#download-wrapper {
+    text-align: center;
+    padding: 10px 5px;
+    background-color: #58BE89;
+}
+#download {
+    color: white;
+    padding: 50px 10px; 
+}
+#download > h4 {
+    margin-bottom: 20px;
+}
+
+#getting-started-wrapper {
+    padding-top: 20px;
+    padding-bottom: 30px;
+}
+#getting-started {}
+#getting-started pre.sample-code {
+    background-color: rgb(254, 252, 231);
+    padding-left: 20px;
+    border: 5px solid #fff;
+}
+
+#guide-wrapper {}
+#guide {
+    background-color: white;
+    padding-top: 20px;
+    padding-bottom: 50px;
+}
+
+#contact-wrapper {}
+#contact {
+    color: white;
+    background-color: #40AAEF;
+    padding-top: 20px;
+    padding-bottom: 50px;
+}
+
+/* api-docs page */
+#api-docs-page {
+    text-align: center;
+    background-color: white;
+    padding-top: 4rem;
+}
+#api-docs-page iframe {
+    margin: 0 auto;
+    border: none;
+    width: 100%;
+    height: 1000px;
+}
+
+/* download page */
+#download-page {
+    background-color: white;
+    padding-top: 5rem;
+    padding-bottom: 30rem;
+}
+#download-page h2 {
+    border-bottom:2px dotted #363947;
+    padding: 5px 6px;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+
+/* Tutorial page */
+#tutorial-page {
+    background-color: white;
+    padding-top: 5rem;
+    padding-bottom: 10rem;
+}
+#tutorial-page pre.sample-code {
+    background-color: rgb(254, 252, 231);
+    padding-left: 20px;
+    border: 1px solid #ccc;
+}
+#tutorial-page h1 {
+    color: white;
+    background-color: #00a9a4;
+    padding: 15px 12px;
+    margin-top: 35px;
+    margin-bottom: 20px;
+}
+#tutorial-page hr {
+    border: 10px solid #00a9a4;
+    margin: 0px;
+    margin-top: -35px;
+}
+#tutorial-page h2 {
+    border-bottom:2px dotted #363947;
+    padding: 5px 6px;
+    margin-top: 5rem;
+}
+#tutorial-page h3 {
+    position: relative;
+    padding-left: 1.2em;
+    margin-top: 1.2em;
+    margin-bottom: 0.5em;
+}
+#tutorial-page h3:before {
+    content: "◉";
+    color: #00a9a4;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+/* Examples pages */
+#examples-page {
+    background-color: white;
+    padding-top: 5rem;
+    padding-bottom: 30rem;
+}
+#examples-page h2 {
+    border-bottom:2px dotted #363947;
+    padding: 5px 6px;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+#examples-page {
+}
+#examples-page .example-viewer-wrapper {
+    display: inline-block;
+    height: 300px; 
+    width: 250px;
+    margin: 5px;
+    padding: 5px 10px;
+    border: 5px solid #363947;
+}
+#examples-page .example-viewer-wrapper > h4 {
+    background-color: #363947;
+    color: white;
+    padding: 5px 10px;
+}
+#examples-page .example-viewer {
+    margin: 0;
+    width: 400px;
+    height: 400px;
+    transform: scale(0.55);
+    -o-transform:scale(0.55);
+    -webkit-transform:scale(0.55);
+    -moz-transform:scale(0.55);
+    -ms-transform:scale(0.55);
+    transform-origin:0 0;
+    -o-transform-origin:0 0;
+    -webkit-transform-origin:0 0;
+    -moz-transform-origin:0 0;
+    -ms-transform-origin:0 0;
+}
+
+
+/* others page */
+#others-page {
+    background-color: white;
+    padding-top: 5rem;
+    padding-bottom: 30rem;
+}
+#others-page h2 {
+    border-bottom:2px dotted #363947;
+    padding: 5px 6px;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}

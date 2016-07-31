@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>handyGraphic.Window - HandyGraphic.js</title>
+    <link rel="stylesheet" href="http://yui.yahooapis.com/3.8.0pr2/build/cssgrids/cssgrids-min.css">
+    <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
+    <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
+    <script src="http://yui.yahooapis.com/combo?3.8.0pr2/build/yui/yui-min.js"></script>
+</head>
+<body class="yui3-skin-sam">
+
+<div id="doc">
+    <div id="hd" class="yui3-g header">
+        <div class="yui3-u-3-4">
+            <h1><a href="../index.html"><img src="../assets/css/logo.png" width="60" height="60">HandyGraphic.js: handyGraphic.Window</a></h1>
+        </div>
+        <div class="yui3-u-1-4 version">
+            <em>API Docs for: 0.0.1</em>
+        </div>
+    </div>
+    <div class="yui3-g">
+
+        <div id="sidebar" class="yui3-u">
+            <div id="modules" class="sidebox">
+                <div class="hd">
+                    <h2 class="no-toc">Modules</h2>
+                </div>
+                <div class="bd">
+                    <ul>
+                            <li><a href="../modules/handyGraphic.html">handyGraphic</a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div id="classes" class="sidebox">
+                <div class="hd">
+                    <h2 class="no-toc">Classes</h2>
+                </div>
+                <div class="bd">
+                    <ul>
+                            <li><a href="../classes/handyGraphic.globalize.html">handyGraphic.globalize</a></li>
+                            <li><a href="../classes/handyGraphic.Graphic.html">handyGraphic.Graphic</a></li>
+                            <li><a href="../classes/handyGraphic.Scene.html">handyGraphic.Scene</a></li>
+                            <li><a href="../classes/handyGraphic.Sprite.html">handyGraphic.Sprite</a></li>
+                            <li><a href="../classes/handyGraphic.Util.html">handyGraphic.Util</a></li>
+                            <li><a href="../classes/handyGraphic.Window.html">handyGraphic.Window</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div id="elements" class="sidebox">
+                <div class="hd">
+                    <h2 class="no-toc">Elements</h2>
+                </div>
+                <div class="bd">
+                    <ul>
+                    </ul>
+                </div>
+            </div>
+            
+            <div id="methods-on-page" class="sidebox on-page">
+                <div class="hd">
+                    <h2 class="no-toc">Methods On Page</h2>
+                </div>
+                <div class="bd">
+                    <ul>
+                            <li><a href="#methods_getContext2d">getContext2d</a></li>
+                            <li><a href="#methods_getHeight">getHeight</a></li>
+                            <li><a href="#methods_getWidth">getWidth</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            
+            
+            
+            <div id="fileTree" class="sidebox">
+                <div class="hd">
+                    <h2 class="no-toc">Files</h2>
+                </div>
+                <div class="bd">
+                    <ul><li>archery/<ul><li><a href="../files/archery_main.js.html">main.js</a></li></ul></li><li>handyGraphic.js/<ul></ul></li><li>sprite/<ul><li><a href="../files/sprite_main.js.html">main.js</a></li></ul></li></ul>
+                </div>
+            </div>
+            
+        </div>
+
+        <div id="main" class="yui3-u">
+            <div class="content"><h4>Class handyGraphic.Window</h4>
+<span class="foundat">Class defined in: <a href="../files/handyGraphic.js.html#l67"><code>handyGraphic.js:67</code></a></span>
+<div class="intro"><p>Window オブジェクトは，ウィンドウのインスタンスです．
+描画処理に代表される画面に見える処理は，実際のところ Window オブジェクトに対して行われています．
+Window オブジェクトの作成は，Graphic オブジェクトの Open，WOpen メソッドを用いて作成することがベストプラクティスです．</p>
+<p>また，1つのWebページに複数のウィンドウを作成することもできます．
+その場合は Window オブジェクトを表示する画面の数だけ作成する必要があります．</p>
+</div>
+
+<a name="methods_handyGraphic.Window"></a>
+<div class="method item">
+     <strong class="name"><code>handyGraphic.Window</code></strong>( <code>w, h, id </code> ) 
+    <br>
+    <span class="foundat">
+        
+        <a href="../files/handyGraphic.js.html#l67"><code>handyGraphic.js:67</code></a>
+    </span><br>
+    
+    <strong>Parameters:</strong>
+    <ul class="params">
+        <li>
+            <code>w</code> <strong>&lt;Number&gt;</strong>
+        <p>ウィンドウの幅</p>
+
+        </li>
+        <li>
+            <code>h</code> <strong>&lt;Number&gt;</strong>
+        <p>ウィンドウの高さ</p>
+
+        </li>
+        <li>
+            <code>id</code> <strong>&lt;Number&gt;</strong>
+        <p>Canvasのid</p>
+
+        </li>
+    </ul>
+</div>
+
+<div id="classdocs">
+    <ul>
+        <li><a href="#methods">Methods</a></li>
+        <li><a href="#props">Properties</a></li>
+    </ul>
+    <div>
+            <div id="methods">
+<a name="methods_getContext2d"></a>
+<div class="method item">
+    CanvasRenderingContext2D <strong class="name"><code>getContext2d</code></strong>( <code>  </code> ) 
+    <br>
+    <span class="foundat">
+        
+        <a href="../files/handyGraphic.js.html#l118"><code>handyGraphic.js:118</code></a>
+    </span><br>
+    <p>描画するための2Dレンダリングコンテキストを取得する</p>
+
+    <br><div class="returns"><strong>Returns:</strong> &lt;CanvasRenderingContext2D&gt; <p>2Dレンダリングコンテキスト</p>
+</div>
+</div>
+<a name="methods_getHeight"></a>
+<div class="method item">
+    Number <strong class="name"><code>getHeight</code></strong>( <code>  </code> ) 
+    <br>
+    <span class="foundat">
+        
+        <a href="../files/handyGraphic.js.html#l109"><code>handyGraphic.js:109</code></a>
+    </span><br>
+    <p>ウィンドウの高さを取得する</p>
+
+    <br><div class="returns"><strong>Returns:</strong> &lt;Number&gt; <p>ウィンドウの高さ</p>
+</div>
+</div>
+<a name="methods_getWidth"></a>
+<div class="method item">
+    Number <strong class="name"><code>getWidth</code></strong>( <code>  </code> ) 
+    <br>
+    <span class="foundat">
+        
+        <a href="../files/handyGraphic.js.html#l100"><code>handyGraphic.js:100</code></a>
+    </span><br>
+    <p>ウィンドウの幅を取得する</p>
+
+    <br><div class="returns"><strong>Returns:</strong> &lt;Number&gt; <p>ウィンドウの幅</p>
+</div>
+</div>
+            </div>
+            <div id="props">
+<a name="props_canvas"></a>
+<div class="props item">
+    <code>canvas</code> &lt;<strong>Canvas</strong>&gt;<br>
+    <span class="foundat"><a href="../files/handyGraphic.js.html#l84"><code>handyGraphic.js:84</code></a></span>
+    <p>canvasIdで指定されたcanvasオブジェクト
+canvasIdを指定しない場合は，'#canvas'が指定されたものとする．</p>
+
+</div>
+<a name="props_ctx"></a>
+<div class="props item">
+    <code>ctx</code> &lt;<strong>CanvasRenderingContext2D</strong>&gt;<br>
+    <span class="foundat"><a href="../files/handyGraphic.js.html#l93"><code>handyGraphic.js:93</code></a></span>
+    <p>canvasの2Dコンテキスト</p>
+
+</div>
+            </div>
+    </div>
+</div>
+</div>
+        </div>
+    </div>
+</div>
+<script src="../assets/vendor/prettify/prettify-min.js"></script>
+<script>prettyPrint();</script>
+<script src="../assets/js/yui-prettify.js"></script>
+<script src="../assets/js/tabs.js"></script>
+</body>
+</html>

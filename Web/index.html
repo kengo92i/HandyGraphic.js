@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="HandyGraphic.jsの説明ページです．">
+    <meta name="author" content="kengo92i">
+
+    <title>HandyGraphic.js | HandyGraphic.js - A simple javascript graphic library for graphics, apps and games.</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Prettify core CSS -->
+    <link href="js/google-code-prettify/prettify.css" rel="stylesheet">
+
+    <!-- Custom styles for this page -->
+    <link href="css/style.css" rel="stylesheet">
+  </head>
+
+  <body>
+
+    <nav class="navbar navbar-fixed-top navbar-dark bg-inverse">
+
+        <!-- Toggle Button -->
+        <button class="navbar-toggler hidden-sm-up" type="button" data-toggle="collapse" data-target="#nav-content">
+            ☰
+        </button>
+
+        <!-- Nav Content -->
+        <div class="collapse navbar-toggleable-xs" id="nav-content">
+            <a class="navbar-brand" href="#">HandyGraphic.js</a>
+            <ul class="nav navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Introduction <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="download/index.html">Download</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="api-docs/index.html">API Docs</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="tutorial/index.html">Tutorial</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="examples/index.html">Examples</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="others/index.html">Others</a>
+                </li>
+            </ul>
+        </div>
+
+    </nav>
+
+
+    <div id="introduction-wrapper">
+        <div id="introduction">
+
+            <div class="container">
+                <div class="jumbotron">
+                    <img src="images/logo.png" style="float:left; margin: 0px 20px;">
+                    <h1>HandyGraphic.js</h1>
+                    <p>A simple javascript graphic library for graphics, apps and games.</p>
+                    <p>
+                        <a href="download/handyGraphic.zip" class="btn btn-primary btn-lg">Download</a>
+                        <a href="https://github.com/kengo92i/HandyGraphic.js" class="btn btn-secondary btn-lg">View on GitHub</a>
+                    </p>
+                </div>
+            </div>
+
+            <div class="container">
+                <h1 class="dotted-border-heading">HandyGraphic.js とは？</h1>
+                <p class="lead">HandyGraphic.jsはjavascriptで開発されたグラフィックスライブラリです．HTML5 Canvasベースの単純な図形描画や，アニメーション機能をサポートしています．</p>
+
+                <div class="row">
+                    <div class="col-sm-6">
+                        <h2 class="dotted-border-heading">図形描画</h2> 
+                        <p>HandyGraphic.js の図形描画機能は Handy Graphic というC言語のグラフィックスライブラリを元に開発されています．そのため，C言語版 Handy Graphic で書かれたプログラムのWebへの移植に使うこともできます．C言語版 Handy Graphic へのリンクは <a href="http://www.cc.kyoto-su.ac.jp/~ogihara/Hg/" target="_blank">こちら</a> になります．</p>
+                    </div>
+
+                    <div class="col-sm-6">
+                        <h2 class="dotted-border-heading">その他の機能</h2>
+                        <p>図形描画機能だけではなく，SceneやSpriteと言ったクラスをサポートしているため，簡単なアニメーションやゲームの作成に使用することも可能です．詳しい使い方は <a href="tutorial/index.html">Tutorial</a> または，<a href="api-docs/index.html">API Docs</a> を参照してください．</p>
+                    </div>
+                </div>
+            </div>
+
+        </div><!-- /#introduction -->
+    </div><!-- /#introduction-wrapper -->
+
+
+
+
+    <div id="getting-started-wrapper">
+    <div id="getting-started">
+    <div class="container">
+        <h2 class="dotted-border-heading">Getting Started</h2>
+        <p>使い方は，HandyGraphic.jsを読み込むだけです．他に依存しているライブラリはありません．まずは，以下のサンプルを使ってHandyGraphic.jsを使ってみましょう．その他のサンプルは Examples からダウンロードできます．</p>
+        <div class="row">
+            <div class="col-sm-6">
+                <h3> index.html </h3>
+                <pre class="prettyprint sample-code"><code>
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;meta charset=&#x27;utf-8&#x27; /&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, user-scalable=no&quot; /&gt;
+    &lt;meta name=&quot;apple-mobile-web-app-capable&quot; content=&quot;yes&quot; /&gt;
+    &lt;title&gt;Getting Started | HandyGraphic.js&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;canvas id=&quot;canvas&quot;&gt;&lt;/canvas&gt;
+    &lt;script src=&#x27;handyGraphic.min.js&#x27;&gt;&lt;/script&gt;
+    &lt;script src=&#x27;main.js&#x27;&gt;&lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+                </code></pre>
+        </div>
+            <div class="col-sm-6">
+                <h3> main.js </h3>
+                <pre class="prettyprint sample-code"><code>
+handyGraphic.globalize(); // handyGraphic.jsをグローバル展開する
+window.onload = function () {
+  var Hg = new Graphic(); // Graphicオブジェクトを作成する
+  var win = Hg.Open(400, 400); // 描画するウィンドウを作成する
+
+  Hg.Line(100, 100, 300, 300); // 直線の描画
+  Hg.Circle(150, 150, 100); // 円の描画
+  Hg.Text(10, 380, "HandyGraphic"); // 文字の表示
+}
+                </code></pre>
+            </div>
+        </div>
+    </div><!-- /.container -->
+    </div><!-- /#getting-started -->
+    </div><!-- /#getting-started-wrapper -->
+
+
+    <div id="download-wrapper">
+        <div id="download">
+            <h4>今すぐ，HandyGraphic.jsを手に入れよう！</h4>
+            <a href="download/handyGraphic.zip" class="btn btn-primary btn-lg"> Download </a>
+        </div>
+    </div>
+
+
+    <div id="guide-wrapper">
+        <div id="guide">
+        <div class="container">
+        <h2 class="dotted-border-heading">Guide</h2>
+        <p>HandyGraphic.jsを使用するために，役立つページへのリンクを示しています．まずはチュートリアルから始めてみましょう．チュートリアルを終えることで図形描画と簡単なアニメーションに関する知識が身につきます．</p>
+        <div class="row ">
+            <div class="col-sm-4">
+                <h3 class="dotted-border-heading">API Docs</h3>
+                <p>HandyGraphicのAPIドキュメント</p>
+                <a href="api-docs/index.html" class="btn btn-primary">API Docs</a>
+            </div>
+            <div class="col-sm-4">
+                <h3 class="dotted-border-heading">Tutorial</h3>
+                <p>HandyGraphicを使うためのチュートリアル</p>
+                <a href="tutorial/index.html" class="btn btn-primary">Tutorial</a>
+            </div>
+            <div class="col-sm-4">
+                <h3 class="dotted-border-heading">Examples</h3>
+                <p>サンプルのページ</p>
+                <a href="examples/index.html" class="btn btn-primary">Examples</a>
+            </div>
+        </div>
+        </div><!-- /.container -->
+        </div><!-- /#guide -->
+    </div><!-- /#guide-wrapper -->
+
+    <div id="contact-wrapper">
+        <div id="contact">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-8">
+                    <h3>Contact</h3>                    
+                    <p>Twitter : <a href="#" class="btn btn-primary btn-sm">@kengo92i</a></p>
+                </div>
+                <div class="col-sm-4">
+                    <h3>ライセンス</h3>                    
+                    <p>The MIT License</p>
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+
+
+    <footer class="bd-footer bg-inverse">
+        Copyright (C) 2016 kengo92i All Rights Reserved.
+    </footer>
+
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/google-code-prettify/prettify.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script> prettyPrint(); </script>
+  </body>
+</html>

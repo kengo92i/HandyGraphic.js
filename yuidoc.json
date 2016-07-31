@@ -1,0 +1,12 @@
+{
+    "name" : "HandyGraphic.js",
+    "description" : "HandyGraphic graphic library written in JavaScript",
+    "version" : "1.0.0",
+    "options" : {
+        "paths" : [
+            "./"
+        ],
+        "outdir" : "./docs",
+        "themedir" : "./themes/handyGraphic/"
+    }
+}
