@@ -6,6 +6,7 @@ JavaScript で書かれたグラフィックライブラリです．
 
 ## 詳しい説明
 + docs ディレクトリ内のHTMLページを参照
++ https://kengo92i.github.io/HandyGraphic.js/index.html
 + http://rudds.jp/~kengo/handygraphic/index.html
 
 
