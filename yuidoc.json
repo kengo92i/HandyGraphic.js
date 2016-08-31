@@ -7,7 +7,7 @@
             "./"
         ],
         "exclude": "Web",
-        "outdir" : "./docs",
+        "outdir" : "./api-docs",
         "themedir" : "./themes/handyGraphic/"
     }
 }

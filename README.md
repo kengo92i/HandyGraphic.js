@@ -5,7 +5,7 @@ JavaScript で書かれたグラフィックライブラリです．
 + YUIDoc - JavaScript Documentation Tool v0.10.2
 
 ## 詳しい説明
-+ Web ディレクトリ内のHTMLページを参照
++ docs ディレクトリ内のHTMLページを参照
 + http://rudds.jp/~kengo/handygraphic/index.html
 
 
